@@ -1,0 +1,5 @@
+var game = new Lorina()
+	game.setTitle('Ambition')
+		.setColor(colorFive)
+		.setRoomSize(320, 568)
+		.setDomSize(320, 568)
