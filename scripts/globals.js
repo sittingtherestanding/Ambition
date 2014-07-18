@@ -1,4 +1,5 @@
-var mainColor = '#111111'
+var mainColor = '#dddddd'
+var secondaryColor = '#111111'
 
 var game = new Lorina()
 	game.setTitle('Ambition')
@@ -7,3 +8,10 @@ var game = new Lorina()
 		.setDomSize(320, 568)
 
 var mouse = new Mouse()
+
+var money = 0
+var job = 'intern'
+var social = 0
+var answered = 0
+
+var userInput = 'null'
