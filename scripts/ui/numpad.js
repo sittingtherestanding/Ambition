@@ -22,6 +22,8 @@ var Numpad = function()
 				 .setSize(size * 2, size * 2)
 				 .setAnchor(size, size)
 
+	console.log(numberOne.bound)
+
 	this.watch = function()
 	{
 		if (mouse.checkLeftClicked(numberOne))
