@@ -14,4 +14,4 @@ var job = 'intern'
 var social = 0
 var answered = 0
 
-var userInput = 'null'
+var userInput = '0'

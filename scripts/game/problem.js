@@ -1,8 +1,10 @@
 var Problem = function()
 {
+	var self = this
+
 	var size = 50
 	var yPosition = size * 1.5
-	var cap = 50
+	var cap = 9
 
 	var tool = new Tool()
 	var typewriter = new Typewriter()
@@ -16,30 +18,25 @@ var Problem = function()
 		// Works only for addition for now
 		first = Math.round(tool.random(0, cap))
 		second = Math.round(tool.random(0, cap))
+
+		userInput = '0'
 	}
 
 	this.check = function()
 	{
-		/*
-		if (userInput == problem)
+		if (parseInt(userInput) == (first + second))
 		{
 			this.pass()
 		}
-		else
-		{
-			this.fail()
-		}
-		*/
 	}
 
 		this.pass = function()
 		{
-			solved++
-		}
-
-		this.fail = function()
-		{
-			// Stuff
+			setTimeout(function()
+			{
+				answered++
+				self.generate()
+			}, 750)
 		}
 
 	this.draw = function()

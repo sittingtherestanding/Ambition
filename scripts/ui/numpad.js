@@ -16,28 +16,167 @@ var Numpad = function()
 
 	var typewriter = new Typewriter()
 		typewriter.setColor(secondaryColor).setSize(size).setAlignment('center')
+	var problem = new Problem()
+		problem.generate()
 
 	var numberOne = new Entity()
 		numberOne.setPosition(columnOne, rowOne + entityPadding)
 				 .setSize(size * 2, size * 2)
 				 .setAnchor(size, size)
 
-	console.log(numberOne.bound)
+	var numberTwo = new Entity()
+		numberTwo.setPosition(columnTwo, rowOne + entityPadding)
+				 .setSize(size * 2, size * 2)
+				 .setAnchor(size, size)
+
+	var numberThree = new Entity()
+		numberThree.setPosition(columnThree, rowOne + entityPadding)
+				   .setSize(size * 2, size * 2)
+				   .setAnchor(size, size)
+
+	var numberFour = new Entity()
+		numberFour.setPosition(columnOne, rowTwo + entityPadding)
+				  .setSize(size * 2, size * 2)
+				  .setAnchor(size, size)
+
+	var numberFive = new Entity()
+		numberFive.setPosition(columnTwo, rowTwo + entityPadding)
+				  .setSize(size * 2, size * 2)
+				  .setAnchor(size, size)
+
+	var numberSix = new Entity()
+		numberSix.setPosition(columnThree, rowTwo + entityPadding)
+				 .setSize(size * 2, size * 2)
+				 .setAnchor(size, size)
+
+	var numberSeven = new Entity()
+		numberSeven.setPosition(columnOne, rowThree + entityPadding)
+				   .setSize(size * 2, size * 2)
+				   .setAnchor(size, size)
+
+	var numberEight = new Entity()
+		numberEight.setPosition(columnTwo, rowThree + entityPadding)
+				   .setSize(size * 2, size * 2)
+				   .setAnchor(size, size)
+
+	var numberNine = new Entity()
+		numberNine.setPosition(columnThree, rowThree + entityPadding)
+				  .setSize(size * 2, size * 2)
+				  .setAnchor(size, size)
+
+	var numberZero = new Entity()
+		numberZero.setPosition(columnTwo, rowFour + entityPadding)
+				  .setSize(size * 2, size * 2)
+				  .setAnchor(size, size)
+
+	var buttonClear = new Entity()
+		buttonClear.setPosition(columnOne, rowFour + entityPadding)
+				   .setSize(size * 2, size * 2)
+				   .setAnchor(size, size)
+
+	var canClick = true
 
 	this.watch = function()
 	{
-		if (mouse.checkLeftClicked(numberOne))
+		if (canClick && mouse.leftClick)
 		{
-			console.log('clicked')
+			canClick = false
 
-			userInput += 1
+			if (mouse.checkLeftClicked(numberOne))
+			{
+				this.addInput('1')
+			}
+
+			if (mouse.checkLeftClicked(numberTwo))
+			{
+				this.addInput('2')
+			}
+
+			if (mouse.checkLeftClicked(numberThree))
+			{
+				this.addInput('3')
+			}
+
+			if (mouse.checkLeftClicked(numberFour))
+			{
+				this.addInput('4')
+			}
+
+			if (mouse.checkLeftClicked(numberFive))
+			{
+				this.addInput('5')
+			}
+
+			if (mouse.checkLeftClicked(numberSix))
+			{
+				this.addInput('6')
+			}
+
+			if (mouse.checkLeftClicked(numberSeven))
+			{
+				this.addInput('7')
+			}
+
+			if (mouse.checkLeftClicked(numberEight))
+			{
+				this.addInput('8')
+			}
+
+			if (mouse.checkLeftClicked(numberNine))
+			{
+				this.addInput('9')
+			}
+
+			if (mouse.checkLeftClicked(numberZero))
+			{
+				this.addInput('0')
+			}
+
+			if (mouse.checkLeftClicked(buttonClear))
+			{
+				userInput = '0'
+			}
 		}
 	}
 
+		this.addInput = function(input)
+		{
+			if (userInput == '0')
+			{
+				userInput = input
+			}
+			else
+			{
+				userInput += input
+			}
+
+			problem.check()
+		}
+
 	this.draw = function()
 	{
+		if (!mouse.leftClick)
+		{
+			canClick = true
+		}
+
 		this.watch()
+
+		/*
 		numberOne.debug()
+		numberTwo.debug()
+		numberThree.debug()
+		numberFour.debug()
+		numberFive.debug()
+		numberSix.debug()
+		numberSeven.debug()
+		numberEight.debug()
+		numberNine.debug()
+		numberZero.debug()
+		buttonClear.debug()
+		*/
+
+		problem.draw()
 
 		typewriter.setPosition(columnOne, rowOne).write('1')
 		typewriter.setPosition(columnTwo, rowOne).write('2')

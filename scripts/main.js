@@ -1,8 +1,5 @@
 var ui = new UI()
 var numpad = new Numpad()
-var problem = new Problem()
-
-problem.generate()
 
 var main = function()
 {
@@ -10,7 +7,6 @@ var main = function()
 
 	ui.draw()
 	numpad.draw()
-	problem.draw()
 
 	game.draw()
 }
