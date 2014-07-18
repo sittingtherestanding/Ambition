@@ -1,10 +1,10 @@
-var mouse = new Mouse()
+var numpad = new Numpad()
 
 var main = function()
 {
 	game.blank()
 
-	// Stuff
+	numpad.draw()
 
 	game.draw()
 }
