@@ -1,12 +1,19 @@
-var ui = new UI()
+var header = new Header()
 var numpad = new Numpad()
 
 var main = function()
 {
 	game.blank()
 
-	ui.draw()
-	numpad.draw()
+	if (currentScreen == 'solving')
+	{
+		header.draw()
+		numpad.draw()
+	}
+	else if (currentScreen == 'store')
+	{
+		// Stuff
+	}
 
 	game.draw()
 }

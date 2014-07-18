@@ -74,6 +74,11 @@ var Numpad = function()
 				   .setSize(size * 2, size * 2)
 				   .setAnchor(size, size)
 
+	var buttonDelete = new Entity()
+		buttonDelete.setPosition(columnThree, rowFour + entityPadding)
+					.setSize(size * 2, size * 2)
+					.setAnchor(size, size)
+
 	var canClick = true
 
 	this.watch = function()
@@ -136,6 +141,18 @@ var Numpad = function()
 			{
 				userInput = '0'
 			}
+
+			if (mouse.checkLeftClicked(buttonDelete))
+			{
+				if (userInput.length > 1)
+				{
+					userInput = userInput.substring(0, userInput.length - 1)
+				}
+				else
+				{
+					userInput = '0'
+				}
+			}
 		}
 	}
 
@@ -175,6 +192,8 @@ var Numpad = function()
 		numberZero.debug()
 		buttonClear.debug()
 		*/
+
+		buttonDelete.debug()
 
 		problem.draw()
 

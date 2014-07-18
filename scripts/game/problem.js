@@ -32,12 +32,16 @@ var Problem = function()
 
 		this.pass = function()
 		{
+			game.setColor(successColor)
+
 			setTimeout(function()
 			{
 				answered++
 				money += salaries[promotion][raise]
 
 				self.generate()
+
+				game.setColor(mainColor)
 			}, 750)
 		}
 

@@ -1,5 +1,6 @@
 var mainColor = '#dddddd'
 var secondaryColor = '#111111'
+var successColor = '#01FF70'
 
 var game = new Lorina()
 	game.setTitle('Ambition')
@@ -8,6 +9,8 @@ var game = new Lorina()
 		.setDomSize(320, 568)
 
 var mouse = new Mouse()
+
+var currentScreen = 'solving'
 
 var money = 0
 var answered = 0

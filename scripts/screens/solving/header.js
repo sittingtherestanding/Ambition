@@ -1,4 +1,4 @@
-var UI = function()
+var Header = function()
 {
 	var padding = 15
 
