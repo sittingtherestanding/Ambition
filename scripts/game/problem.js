@@ -35,6 +35,8 @@ var Problem = function()
 			setTimeout(function()
 			{
 				answered++
+				money += salaries[promotion][raise]
+
 				self.generate()
 			}, 750)
 		}
