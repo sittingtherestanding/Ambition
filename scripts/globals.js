@@ -72,6 +72,51 @@ var points = [
 	[10000000, 25000000, 100000000]
 ]
 
+var inventoryItems = [
+	'hair cut',
+	'nicer clothes',
+	'gym membership',
+	'cologne/perfume',
+	'slick shoes',
+	'fancy business cards',
+	'travel experience',
+	'new car',
+	'plastic surgery',
+	'managerial courses',
+	'real estate',
+	'airplane'
+]
+
+var inventoryPrices = [
+	20,
+	50,
+	100,
+	150,
+	200,
+	350,
+	1000,
+	10000,
+	25000,
+	35000,
+	75000,
+	150000
+]
+
+var inventoryPoints = [
+	5,
+	12,
+	25,
+	50,
+	100,
+	250,
+	500,
+	1000,
+	2500,
+	5000,
+	10000,
+	100000
+]
+
 var social = 0
 
 var raise = 0

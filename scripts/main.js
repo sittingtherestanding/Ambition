@@ -1,18 +1,20 @@
 var header = new Header()
 var numpad = new Numpad()
+var inventory = new Inventory()
 
 var main = function()
 {
 	game.blank()
 
+	header.draw() // Draw the header on every screen
+
 	if (currentScreen == 'solving')
 	{
-		header.draw()
 		numpad.draw()
 	}
 	else if (currentScreen == 'store')
 	{
-		// Stuff
+		inventory.draw()
 	}
 
 	game.draw()

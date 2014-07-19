@@ -7,15 +7,33 @@ var Header = function()
 	var typewriter = new Typewriter()
 		typewriter.setColor(secondaryColor)
 
-	var storeButton = new Entity()
-		storeButton.setPosition(0, 0)
-				   .setSize(l.room.width, sizeTitle * 3)
+	var switchButton = new Entity()
+		switchButton.setPosition(0, 0)
+					.setSize(l.room.width, sizeTitle * 3)
+
+	var canClick = true
 
 	this.watch = function()
 	{
-		if (mouse.checkLeftClicked(storeButton))
+		if (canClick && mouse.leftClick)
 		{
-			currentScreen = 'store'
+			canClick = false
+
+			if (mouse.checkLeftClicked(switchButton))
+			{
+				if (currentScreen == 'store')
+				{
+					currentScreen = 'solving'
+				}
+				else
+				{
+					currentScreen = 'store'
+				}
+			}
+		}
+		else if (!mouse.leftClick)
+		{
+			canClick = true
 		}
 	}
 

@@ -15,7 +15,7 @@ var Numpad = function()
 	var rowFour = l.room.height - yPadding
 
 	var typewriter = new Typewriter()
-		typewriter.setColor(secondaryColor).setSize(size).setAlignment('center')
+		typewriter.setColor(secondaryColor).setSize(size)
 	var problem = new Problem()
 		problem.generate()
 
@@ -178,22 +178,6 @@ var Numpad = function()
 		}
 
 		this.watch()
-
-		/*
-		numberOne.debug()
-		numberTwo.debug()
-		numberThree.debug()
-		numberFour.debug()
-		numberFive.debug()
-		numberSix.debug()
-		numberSeven.debug()
-		numberEight.debug()
-		numberNine.debug()
-		numberZero.debug()
-		buttonClear.debug()
-		*/
-
-		buttonDelete.debug()
 
 		problem.draw()
 

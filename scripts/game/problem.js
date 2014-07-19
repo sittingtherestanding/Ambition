@@ -47,7 +47,7 @@ var Problem = function()
 
 	this.draw = function()
 	{
-		typewriter.setPosition(l.room.width / 2, yPosition).write(first + ' + ' + second + ' =')
-		typewriter.setPosition(l.room.width / 2, yPosition + size * 1.5).write(userInput)
+		typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition).write(first + ' + ' + second + ' =')
+		typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition + size * 1.5).write(userInput)
 	}
 }
