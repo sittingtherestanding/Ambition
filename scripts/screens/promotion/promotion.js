@@ -3,7 +3,7 @@ var Promotion = function()
 	var size = 50
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setColor(secondaryColor)
+		typewriter.setSize(size).setColor(secondaryColor).setFont('BebasNeue')
 
 	this.draw = function()
 	{

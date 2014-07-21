@@ -1,5 +1,5 @@
-var mainColor = '#dddddd'
-var secondaryColor = '#111111'
+var mainColor = '#7FDBFF'
+var secondaryColor = '#B10DC9'
 var successColor = '#01FF70'
 
 var game = new Lorina()

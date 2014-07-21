@@ -5,7 +5,7 @@ var Header = function()
 	var sizeTitle = 15
 
 	var typewriter = new Typewriter()
-		typewriter.setColor(secondaryColor)
+		typewriter.setColor(secondaryColor).setFont('BebasNeue')
 
 	var switchButton = new Entity()
 		switchButton.setPosition(0, 0)

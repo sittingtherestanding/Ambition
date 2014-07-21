@@ -7,7 +7,7 @@ var Problem = function()
 
 	var tool = new Tool()
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setAlignment('center')
+		typewriter.setSize(size).setAlignment('center').setColor(secondaryColor).setFont('BebasNeue')
 
 	var numbers = new Array()
 
@@ -80,7 +80,5 @@ var Problem = function()
 		{
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition).write(numbers[0] + ' - ' + numbers[1] + ' =')
 		}
-
-		typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition + size * 1.5).write(userInput)
 	}
 }

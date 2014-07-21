@@ -2,8 +2,8 @@ var Numpad = function()
 {
 	var size = 30
 	var entityPadding = size / 2 // Use entities as invisible buttons
-	var xPadding = size * 2
-	var yPadding = size * 2.5
+	var xPadding = size * 1.8
+	var yPadding = size * 2.25
 
 	var columnOne = xPadding
 	var columnTwo = l.room.width / 2
@@ -15,7 +15,7 @@ var Numpad = function()
 	var rowFour = l.room.height - yPadding
 
 	var typewriter = new Typewriter()
-		typewriter.setColor(secondaryColor).setSize(size)
+		typewriter.setColor(secondaryColor)
 	var problem = new Problem()
 		problem.generate()
 
@@ -181,6 +181,7 @@ var Numpad = function()
 
 		problem.draw()
 
+		typewriter.setFont('BebasNeue').setSize(size)
 		typewriter.setPosition(columnOne, rowOne).write('1')
 		typewriter.setPosition(columnTwo, rowOne).write('2')
 		typewriter.setPosition(columnThree, rowOne).write('3')
@@ -196,5 +197,7 @@ var Numpad = function()
 		typewriter.setPosition(columnOne, rowFour).write('x')
 		typewriter.setPosition(columnTwo, rowFour).write('0')
 		typewriter.setPosition(columnThree, rowFour).write('<')
+
+		typewriter.setAlignment('left').setFont('LiquidCrystal-Regular').setSize(size * 1.5).setPosition(columnOne, rowOne - yPadding).write(userInput)
 	}
 }

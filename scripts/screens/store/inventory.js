@@ -4,7 +4,7 @@ var Inventory = function()
 	var padding = 15
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setColor(secondaryColor)
+		typewriter.setSize(size).setColor(secondaryColor).setFont('BebasNeue')
 
 	var canClick = true
 
