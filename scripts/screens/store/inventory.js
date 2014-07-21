@@ -22,17 +22,18 @@ var Inventory = function()
 
 			var clickedID = Math.floor(mouse.y / (padding * 3)) - 1
 
-			if (money >= inventoryPrices[clickedID])
-			{
-				money -= inventoryPrices[clickedID]
-			}
+			this.purchase(clickedID)
 		}
 	}
 
-	this.purchase = function()
-	{
-
-	}
+		this.purchase = function(id)
+		{
+			if (money >= inventoryPrices[id])
+			{
+				money -= inventoryPrices[id]
+				social += inventoryPoints[id]
+			}
+		}
 
 	this.draw = function()
 	{

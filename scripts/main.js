@@ -1,9 +1,15 @@
 var header = new Header()
 var numpad = new Numpad()
 var inventory = new Inventory()
+var promotion = new Promotion()
+var raise = new Raise()
+
+var promotionWatcher = new PromotionWatcher()
 
 var main = function()
 {
+	promotionWatcher.watch()
+
 	game.blank()
 
 	header.draw() // Draw the header on every screen
@@ -15,6 +21,14 @@ var main = function()
 	else if (currentScreen == 'store')
 	{
 		inventory.draw()
+	}
+	else if (currentScreen == 'promotion')
+	{
+		promotion.draw()
+	}
+	else if (currentScreen == 'raise')
+	{
+		raise.draw()
 	}
 
 	game.draw()

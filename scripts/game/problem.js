@@ -37,7 +37,7 @@ var Problem = function()
 			setTimeout(function()
 			{
 				answered++
-				money += salaries[promotion][raise]
+				money += salaries[salary * 3 + promotionLevel]
 
 				self.generate()
 
