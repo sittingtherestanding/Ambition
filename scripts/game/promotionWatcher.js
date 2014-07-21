@@ -26,7 +26,5 @@ var PromotionWatcher = function()
 				currentScreen = 'solving'
 			}, 1500)
 		}
-
-		console.log(job, promotionLevel)
 	}
 }
