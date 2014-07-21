@@ -6,6 +6,7 @@ var PromotionWatcher = function()
 		{
 			currentScreen = 'promotion'
 			job++
+			promotionLevel = 0
 
 			setTimeout(function()
 			{
@@ -25,5 +26,7 @@ var PromotionWatcher = function()
 				currentScreen = 'solving'
 			}, 1500)
 		}
+
+		console.log(job, promotionLevel)
 	}
 }
