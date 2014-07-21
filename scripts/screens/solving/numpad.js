@@ -203,6 +203,6 @@ var Numpad = function()
 
 		pencil.setPosition(0, rowOne - yPadding).setColor(maroon).setSize(l.room.width, yPadding * 0.75).fillRectangle()
 
-		typewriter.setColor(game.color).setAlignment('left').setFont('LiquidCrystal-Regular').setSize(size * 1.5).setPosition(xPadding / 4, rowOne - yPadding).write(userInput)
+		typewriter.setColor(game.color).setAlignment('left').setFont('liquid_crystalregular').setSize(size * 1.5).setPosition(xPadding / 4, rowOne - yPadding).write(userInput)
 	}
 }
