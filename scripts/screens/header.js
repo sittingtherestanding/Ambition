@@ -10,7 +10,7 @@ var Header = function()
 
 	var switchButton = new Entity()
 		switchButton.setPosition(0, 0)
-					.setSize(l.room.width, padding * 2 + sizeTitle)
+					.setSize(l.room.width, padding * 2 + sizeTitle, true)
 
 	var canClick = true
 

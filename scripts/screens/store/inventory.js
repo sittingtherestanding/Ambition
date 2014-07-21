@@ -1,12 +1,19 @@
 var Inventory = function()
 {
+	var clipper = new Clipper()
+
 	var size = 20
 	var padding = 15
 
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular')
+	// var mouse = new Mouse()
 
 	var canClick = true
+
+	var dragger = new Entity()
+		dragger.setPosition(0, padding)
+			   .setSize(l.room.width, l.room.height - padding, true)
 
 	this.drawButton = function(buttonID, row)
 	{
@@ -37,6 +44,9 @@ var Inventory = function()
 
 	this.draw = function()
 	{
+		// mouse.checkDrag(dragger)
+		dragger.debug()
+
 		if (!mouse.leftClick)
 		{
 			canClick = true
