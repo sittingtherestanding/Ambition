@@ -41,7 +41,7 @@ var Header = function()
 	{
 		this.watch()
 
-		typewriter.setSize(sizeTitle).setPosition(padding, padding).setAlignment('left').write('$ ' + money)
+		typewriter.setSize(sizeTitle).setPosition(padding, padding).setAlignment('left').write('$' + money)
 		typewriter.setSize(sizeTitle).setPosition(l.room.width / 2, padding).setAlignment('center').write(jobs[promotion])
 		typewriter.setSize(sizeTitle).setPosition(l.room.width - padding, padding).setAlignment('right').write('SSP ' + social)
 	}
