@@ -4,7 +4,7 @@ var Inventory = function()
 	var padding = 15
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setColor(secondaryColor).setFont('BebasNeue')
+		typewriter.setSize(size).setColor(black).setFont('BebasNeue')
 
 	var canClick = true
 
@@ -44,11 +44,10 @@ var Inventory = function()
 
 		this.watch()
 
-		this.drawButton(0, 0)
-		this.drawButton(1, 1)
-		this.drawButton(2, 2)
-		this.drawButton(3, 3)
-		this.drawButton(4, 4)
-		this.drawButton(5, 5)
+		var i = inventoryItems.length
+		while (i--)
+		{
+			this.drawButton(i, i)
+		}
 	}
 }

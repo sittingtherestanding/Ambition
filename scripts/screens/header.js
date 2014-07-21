@@ -1,15 +1,16 @@
 var Header = function()
 {
-	var padding = 15
+	var padding = 12
 
-	var sizeTitle = 15
+	var sizeTitle = 20
 
 	var typewriter = new Typewriter()
-		typewriter.setColor(secondaryColor).setFont('BebasNeue')
+		typewriter.setColor(maroon).setFont('BebasNeue')
+	var pencil = new Pencil()
 
 	var switchButton = new Entity()
 		switchButton.setPosition(0, 0)
-					.setSize(l.room.width, sizeTitle * 3)
+					.setSize(l.room.width, padding * 2 + sizeTitle)
 
 	var canClick = true
 
@@ -40,6 +41,8 @@ var Header = function()
 	this.draw = function()
 	{
 		this.watch()
+
+		pencil.setPosition(0, 0).setSize(l.room.width, padding * 2 + sizeTitle).setColor(orange).fillRectangle()
 
 		typewriter.setSize(sizeTitle).setPosition(padding, padding).setAlignment('left').write('$' + money)
 		typewriter.setSize(sizeTitle).setPosition(l.room.width / 2, padding).setAlignment('center').write(jobs[job])

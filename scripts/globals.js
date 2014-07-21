@@ -1,10 +1,24 @@
-var mainColor = '#7FDBFF'
-var secondaryColor = '#B10DC9'
-var successColor = '#01FF70'
+var navy = '#001F3F'
+var blue = '#0074D9'
+var aqua = '#7FDBFF'
+var teal = '#39CCCC'
+var olive = '#3D9970'
+var green = '#2ECC40'
+var lime = '#01FF70'
+var yellow = '#FFDC00'
+var orange = '#FF851B'
+var red = '#FF4136'
+var maroon = '#85144B'
+var fuchsia = '#F012BE'
+var purple = '#B10DC9'
+var black = '#111111'
+var gray = '#AAAAAA'
+var silver = '#DDDDDD'
+var white = '#FFFFFF'
 
 var game = new Lorina()
 	game.setTitle('Ambition')
-		.setColor(mainColor)
+		.setColor(teal)
 		.setRoomSize(320, 568)
 		.setDomSize(320, 568)
 

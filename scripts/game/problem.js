@@ -3,11 +3,11 @@ var Problem = function()
 	var self = this
 
 	var size = 50
-	var yPosition = size * 1.5
+	var yPosition = size * 2
 
 	var tool = new Tool()
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setAlignment('center').setColor(secondaryColor).setFont('BebasNeue')
+		typewriter.setSize(size).setAlignment('center').setColor(black).setFont('BebasNeue')
 
 	var numbers = new Array()
 
@@ -57,7 +57,7 @@ var Problem = function()
 
 		this.pass = function()
 		{
-			game.setColor(successColor)
+			game.setColor(lime)
 
 			setTimeout(function()
 			{
@@ -66,7 +66,7 @@ var Problem = function()
 
 				self.generate()
 
-				game.setColor(mainColor)
+				game.setColor(aqua)
 			}, 750)
 		}
 
@@ -74,11 +74,11 @@ var Problem = function()
 	{
 		if (job == 0)
 		{
-			typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition).write(numbers[0] + ' + ' + numbers[1] + ' =')
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition).write(numbers[0] + ' + ' + numbers[1])
 		}
 		else if (job == 1)
 		{
-			typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition).write(numbers[0] + ' - ' + numbers[1] + ' =')
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, yPosition).write(numbers[0] + ' - ' + numbers[1])
 		}
 	}
 }

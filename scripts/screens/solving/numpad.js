@@ -15,7 +15,8 @@ var Numpad = function()
 	var rowFour = l.room.height - yPadding
 
 	var typewriter = new Typewriter()
-		typewriter.setColor(secondaryColor)
+		typewriter.setColor(maroon)
+	var pencil = new Pencil()
 	var problem = new Problem()
 		problem.generate()
 
@@ -181,7 +182,9 @@ var Numpad = function()
 
 		problem.draw()
 
-		typewriter.setFont('BebasNeue').setSize(size)
+		pencil.setPosition(0, rowOne - yPadding).setColor(gray).setSize(l.room.width, l.room.height - (rowOne - yPadding)).fillRectangle()
+
+		typewriter.setFont('BebasNeue').setSize(size).setColor(white)
 		typewriter.setPosition(columnOne, rowOne).write('1')
 		typewriter.setPosition(columnTwo, rowOne).write('2')
 		typewriter.setPosition(columnThree, rowOne).write('3')
@@ -198,6 +201,8 @@ var Numpad = function()
 		typewriter.setPosition(columnTwo, rowFour).write('0')
 		typewriter.setPosition(columnThree, rowFour).write('<')
 
-		typewriter.setAlignment('left').setFont('LiquidCrystal-Regular').setSize(size * 1.5).setPosition(columnOne, rowOne - yPadding).write(userInput)
+		pencil.setPosition(0, rowOne - yPadding).setColor(maroon).setSize(l.room.width, yPadding * 0.75).fillRectangle()
+
+		typewriter.setColor(game.color).setAlignment('left').setFont('LiquidCrystal-Regular').setSize(size * 1.5).setPosition(xPadding / 4, rowOne - yPadding).write(userInput)
 	}
 }

@@ -3,7 +3,7 @@ var Raise = function()
 	var size = 50
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setColor(secondaryColor).setFont('BebasNeue')
+		typewriter.setSize(size).setColor(yellow).setFont('BebasNeue')
 
 	this.draw = function()
 	{
