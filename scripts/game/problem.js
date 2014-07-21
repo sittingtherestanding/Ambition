@@ -7,7 +7,7 @@ var Problem = function()
 
 	var tool = new Tool()
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setAlignment('center').setColor(black).setFont('BebasNeue')
+		typewriter.setSize(size).setAlignment('center').setColor(black).setFont('bebas_neueregular')
 
 	var numbers = new Array()
 

@@ -5,7 +5,7 @@ var Header = function()
 	var sizeTitle = 20
 
 	var typewriter = new Typewriter()
-		typewriter.setColor(maroon).setFont('BebasNeue')
+		typewriter.setColor(maroon).setFont('bebas_neueregular')
 	var pencil = new Pencil()
 
 	var switchButton = new Entity()

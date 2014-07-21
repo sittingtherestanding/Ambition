@@ -184,7 +184,7 @@ var Numpad = function()
 
 		pencil.setPosition(0, rowOne - yPadding).setColor(gray).setSize(l.room.width, l.room.height - (rowOne - yPadding)).fillRectangle()
 
-		typewriter.setFont('BebasNeue').setSize(size).setColor(white)
+		typewriter.setFont('bebas_neueregular').setSize(size).setColor(white)
 		typewriter.setPosition(columnOne, rowOne).write('1')
 		typewriter.setPosition(columnTwo, rowOne).write('2')
 		typewriter.setPosition(columnThree, rowOne).write('3')
