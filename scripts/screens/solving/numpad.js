@@ -28,6 +28,12 @@ var Numpad = function()
 
 	var rain = new Group()
 
+	var pressedButton = new Entity()
+		pressedButton.setSprite('images/pressed.png')
+			   		 .setPosition(columnOne, rowOne)
+			   		 .setStretch(buttonSize, buttonSize)
+			   		 .setOpacity(0)
+
 	var numberOne = new Entity()
 		numberOne.setSprite('svg/one.svg')
 				 .setStretch(buttonSize, buttonSize, true, true)
@@ -204,61 +210,85 @@ var Numpad = function()
 
 			if (mouse.checkLeftClicked(numberOne))
 			{
+				this.movePressedButton(numberOne)
+
 				this.addInput('1')
 			}
 
 			if (mouse.checkLeftClicked(numberTwo))
 			{
+				this.movePressedButton(numberTwo)
+
 				this.addInput('2')
 			}
 
 			if (mouse.checkLeftClicked(numberThree))
 			{
+				this.movePressedButton(numberThree)
+
 				this.addInput('3')
 			}
 
 			if (mouse.checkLeftClicked(numberFour))
 			{
+				this.movePressedButton(numberFour)
+
 				this.addInput('4')
 			}
 
 			if (mouse.checkLeftClicked(numberFive))
 			{
+				this.movePressedButton(numberFive)
+
 				this.addInput('5')
 			}
 
 			if (mouse.checkLeftClicked(numberSix))
 			{
+				this.movePressedButton(numberSix)
+
 				this.addInput('6')
 			}
 
 			if (mouse.checkLeftClicked(numberSeven))
 			{
+				this.movePressedButton(numberSeven)
+
 				this.addInput('7')
 			}
 
 			if (mouse.checkLeftClicked(numberEight))
 			{
+				this.movePressedButton(numberEight)
+
 				this.addInput('8')
 			}
 
 			if (mouse.checkLeftClicked(numberNine))
 			{
+				this.movePressedButton(numberNine)
+
 				this.addInput('9')
 			}
 
 			if (mouse.checkLeftClicked(numberZero))
 			{
+				this.movePressedButton(numberZero)
+
 				this.addInput('0')
 			}
 
 			if (mouse.checkLeftClicked(buttonClear))
 			{
+				this.movePressedButton(buttonClear)
+
 				userInput = '?'
 			}
 
 			if (mouse.checkLeftClicked(buttonDelete))
 			{
+				this.movePressedButton(buttonDelete)
+
 				if (userInput.length > 1)
 				{
 					userInput = userInput.substring(0, userInput.length - 1)
@@ -270,6 +300,13 @@ var Numpad = function()
 			}
 		}
 	}
+
+		this.movePressedButton = function(button)
+		{
+			pressedButton.opacity = 1
+			pressedButton.x = button.x
+			pressedButton.y = button.y
+		}
 
 		this.addInput = function(input)
 		{
@@ -290,6 +327,7 @@ var Numpad = function()
 		if (!mouse.leftClick)
 		{
 			canClick = true
+			pressedButton.opacity = 0
 		}
 
 		this.watch()
@@ -317,6 +355,9 @@ var Numpad = function()
 		numberZero.draw()
 		buttonClear.draw()
 		buttonDelete.draw()
+
+		// console.log(pressedButton.opacity, l.ctx.globalAlpha)
+		pressedButton.draw()
 
 		rain.applyPhysics().draw()
 	}
