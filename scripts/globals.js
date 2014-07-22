@@ -18,7 +18,7 @@ var white = '#FFFFFF'
 
 var game = new Lorina()
 	game.setTitle('Ambition')
-		.setColor(teal)
+		.setColor(aqua)
 		.setRoomSize(320, 568)
 		.setDomSize(320, 568)
 
@@ -26,8 +26,8 @@ var mouse = new Mouse()
 
 var currentScreen = 'solving'
 
-var money = 3000 // A straight int that keeps track of money
-// IDs referencing below arrays
+var money = 0 // A straight int that keeps track of money
+// IDs referencing arrays
 var social = 0
 var job = 0
 var promotionLevel = 0 // An int modifier used to calculate payment

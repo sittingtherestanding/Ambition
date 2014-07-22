@@ -9,7 +9,7 @@ var Numpad = function()
 
 	var header = new Header()
 
-	var buttonModifier = 3.25 // Larger numbers equal smaller buttons (3 is minimum)
+	var buttonModifier = 3.1 // Larger numbers equal smaller buttons (3 is minimum)
 	var buttonSize = l.room.width / buttonModifier
 	var padding = (l.room.width / 2 - ((l.room.width / buttonModifier) / 2) - buttonSize) / 2
 
@@ -25,6 +25,8 @@ var Numpad = function()
 
 	var numbers = new Array()
 	var problemPosition = (rowZero - header.height) / 2
+
+	var rain = new Group()
 
 	var numberOne = new Entity()
 		numberOne.setSprite('svg/one.svg')
@@ -109,8 +111,6 @@ var Numpad = function()
 				numbers[0] = Math.round(tool.random(0, cap))
 				numbers[1] = Math.round(tool.random(0, cap))
 			}
-
-			console.log(numbers[0] - numbers[1])
 		}
 
 		userInput = '?'
@@ -138,6 +138,8 @@ var Numpad = function()
 		{
 			game.setColor(lime)
 
+			this.makeItRain(salaries[job * 3 + promotionLevel])
+
 			setTimeout(function()
 			{
 				answered++
@@ -146,11 +148,56 @@ var Numpad = function()
 				self.generateProblem()
 
 				game.setColor(aqua)
-			}, 750)
+			}, 350)
 		}
+
+			this.makeItRain = function(count)
+			{
+				while (count--)
+				{
+					var dollar = new Entity()
+						dollar.setSprite('svg/dollar.svg')
+							  .setPosition(tool.random(l.room.width / 6, l.room.width - l.room.width / 6), l.room.height)
+							  .setAnchor(25, 12)
+							  .setStretch(tool.random(50, 100), tool.random(25, 50))
+							  .setFriction(0)
+							  .spin(tool.random(1, 3))
+							  .pushTowardDegree(tool.random(140, 40), tool.random(5, 10))
+					rain.add(dollar)
+				}
+			}
 
 	this.watch = function()
 	{
+		// Watch for raises and promotions
+		if (social >= points[job * 3 + promotionLevel + 1] && promotionLevel == 2)
+		{
+			currentScreen = 'promotion'
+			job++
+			promotionLevel = 0
+
+			setTimeout(function()
+			{
+				game.color = teal
+				currentScreen = 'solving'
+				self.generateProblem()
+			}, 1500)
+		}
+
+		if (social >= points[job * 3 + promotionLevel + 1])
+		{
+			currentScreen = 'raise'
+			promotionLevel++
+
+			setTimeout(function()
+			{
+				game.color = teal
+				currentScreen = 'solving'
+				self.generateProblem()
+			}, 1500)
+		}
+
+		// Check button presses
 		if (canClick && mouse.leftClick)
 		{
 			canClick = false
@@ -270,5 +317,7 @@ var Numpad = function()
 		numberZero.draw()
 		buttonClear.draw()
 		buttonDelete.draw()
+
+		rain.applyPhysics().draw()
 	}
 }

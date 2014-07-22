@@ -5,12 +5,8 @@ var inventory = new Inventory()
 var promotion = new Promotion()
 var raise = new Raise()
 
-var promotionWatcher = new PromotionWatcher()
-
 var main = function()
 {
-	promotionWatcher.watch()
-
 	game.blank()
 
 	header.draw() // Draw the header on every screen
