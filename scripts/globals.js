@@ -22,8 +22,6 @@ var game = new Lorina()
 		.setRoomSize(320, 568)
 		.setDomSize(320, 568)
 
-var mouse = new Mouse()
-
 var currentScreen = 'solving'
 
 var money = 0 // A straight int that keeps track of money

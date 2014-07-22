@@ -5,18 +5,18 @@ var Inventory = function()
 
 	var header = new Header()
 
-	var yPosition = header.height + padding
+	var top = header.height + padding
+	var itemSize = padding * 3
 
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular')
-	// var mouse = new Mouse()
 
 	var canClick = true
 
 	this.drawButton = function(buttonID, row)
 	{
-		typewriter.setPosition(padding, yPosition + padding * 3 * (row)).write(inventoryItems[buttonID].name)
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, yPosition + padding * 3 * (row)).write(inventoryItems[buttonID].points + ' SSP for $' + inventoryItems[buttonID].price)
+		typewriter.setPosition(padding, top + itemSize * (row)).write(inventoryItems[buttonID].name)
+		typewriter.setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (row)).write(inventoryItems[buttonID].points + ' SSP for $' + inventoryItems[buttonID].price)
 	}
 
 	this.watch = function()
@@ -25,9 +25,13 @@ var Inventory = function()
 		{
 			canClick = false
 
-			var index = Math.floor(mouse.y / yPosition)
+			var index = Math.floor((mouse.y - header.height) / itemSize)
+			console.log(index)
 
-			this.purchase(index)
+			if (index >= 0) // Make it so we can't click on the header to buy things
+			{
+				this.purchase(index)
+			}
 		}
 	}
 

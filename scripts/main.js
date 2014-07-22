@@ -1,3 +1,5 @@
+var mouse = new Mouse()
+
 var header = new Header()
 var numpad = new Numpad()
 	numpad.generateProblem()
