@@ -10,7 +10,7 @@ var PromotionWatcher = function()
 
 			setTimeout(function()
 			{
-				game.color = mainColor
+				game.color = teal
 				currentScreen = 'solving'
 			}, 1500)
 		}
@@ -22,7 +22,7 @@ var PromotionWatcher = function()
 
 			setTimeout(function()
 			{
-				game.color = mainColor
+				game.color = teal
 				currentScreen = 'solving'
 			}, 1500)
 		}

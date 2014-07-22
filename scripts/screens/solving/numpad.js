@@ -109,6 +109,8 @@ var Numpad = function()
 				numbers[0] = Math.round(tool.random(0, cap))
 				numbers[1] = Math.round(tool.random(0, cap))
 			}
+
+			console.log(numbers[0] - numbers[1])
 		}
 
 		userInput = '?'

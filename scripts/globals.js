@@ -26,7 +26,7 @@ var mouse = new Mouse()
 
 var currentScreen = 'solving'
 
-var money = 0 // A straight int that keeps track of money
+var money = 3000 // A straight int that keeps track of money
 // IDs referencing below arrays
 var social = 0
 var job = 0
