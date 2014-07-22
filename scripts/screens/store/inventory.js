@@ -1,9 +1,9 @@
 var Inventory = function()
 {
-	var clipper = new Clipper()
-
 	var size = 20
 	var padding = 15
+
+	var yPosition = padding
 
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular')
@@ -11,14 +11,10 @@ var Inventory = function()
 
 	var canClick = true
 
-	var dragger = new Entity()
-		dragger.setPosition(0, padding)
-			   .setSize(l.room.width, l.room.height - padding, true)
-
 	this.drawButton = function(buttonID, row)
 	{
-		typewriter.setPosition(padding, (padding * 3) * (row + 1)).write(inventoryItems[buttonID])
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, (padding * 3) * (row + 1)).write(inventoryPoints[buttonID] + ' SSP for $' + inventoryPrices[buttonID])
+		typewriter.setPosition(padding, yPosition + padding * 3 * (row + 1)).write(inventoryItems[buttonID])
+		typewriter.setAlignment('right').setPosition(l.room.width - padding, yPosition + padding * 3 * (row + 1)).write(inventoryPoints[buttonID] + ' SSP for $' + inventoryPrices[buttonID])
 	}
 
 	this.watch = function()
@@ -27,7 +23,7 @@ var Inventory = function()
 		{
 			canClick = false
 
-			var clickedID = Math.floor(mouse.y / (padding * 3)) - 1
+			var clickedID = Math.floor(mouse.y / yPosition) - 1
 
 			this.purchase(clickedID)
 		}
@@ -44,9 +40,6 @@ var Inventory = function()
 
 	this.draw = function()
 	{
-		// mouse.checkDrag(dragger)
-		dragger.debug()
-
 		if (!mouse.leftClick)
 		{
 			canClick = true
