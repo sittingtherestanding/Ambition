@@ -16,7 +16,7 @@ var Inventory = function()
 	this.drawButton = function(buttonID, row)
 	{
 		typewriter.setPosition(padding, top + itemSize * (row)).write(inventoryItems[buttonID].name)
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (row)).write(inventoryItems[buttonID].points + ' SSP for $' + inventoryItems[buttonID].price)
+		typewriter.setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (row)).write('$' + inventoryItems[buttonID].price + ' for ' + inventoryItems[buttonID].points + ' SSP')
 	}
 
 	this.watch = function()
@@ -26,7 +26,6 @@ var Inventory = function()
 			canClick = false
 
 			var index = Math.floor((mouse.y - header.height) / itemSize)
-			console.log(index)
 
 			if (index >= 0) // Make it so we can't click on the header to buy things
 			{

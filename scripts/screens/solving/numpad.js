@@ -98,14 +98,14 @@ var Numpad = function()
 
 	this.generateProblem = function()
 	{
-		if (job == 0) // Single-digit addition
+		if (jobLevel == 0) // Single-digit addition
 		{
 			var cap = 9
 
 			numbers[0] = Math.round(tool.random(0, cap))
 			numbers[1] = Math.round(tool.random(0, cap))
 		}
-		else if (job == 1) // Single-digit subtraction (no negatives)
+		else if (jobLevel == 1) // Single-digit subtraction (no negatives)
 		{
 			var cap = 9
 
@@ -124,14 +124,14 @@ var Numpad = function()
 
 	this.check = function()
 	{
-		if (job == 0)
+		if (jobLevel == 0)
 		{
 			if (parseInt(userInput) == (numbers[0] + numbers[1]))
 			{
 				this.pass()
 			}
 		}
-		else if (job == 1)
+		else if (jobLevel == 1)
 		{
 			if (parseInt(userInput) == (numbers[0] - numbers[1]))
 			{
@@ -144,12 +144,12 @@ var Numpad = function()
 		{
 			game.setColor(lime)
 
-			this.makeItRain(jobs[job].salary[promotionLevel])
+			this.makeItRain(jobs[jobLevel].salary[promotionLevel])
 
 			setTimeout(function()
 			{
 				answered++
-				money += jobs[job].salary[promotionLevel]
+				money += jobs[jobLevel].salary[promotionLevel]
 
 				self.generateProblem()
 
@@ -176,10 +176,10 @@ var Numpad = function()
 	this.watch = function()
 	{
 		// Watch for raises and promotions
-		if (social >= jobs[job].points[promotionLevel + 1] && promotionLevel == 2)
+		if (social >= jobs[jobLevel].points[promotionLevel + 1] && promotionLevel == 2)
 		{
-			currentScreen = 'promotion'
-			job++
+			currentScreen = 'promotionLevel'
+			jobLevel++
 			promotionLevel = 0
 
 			setTimeout(function()
@@ -190,7 +190,7 @@ var Numpad = function()
 			}, 1500)
 		}
 
-		if (social >= jobs[job].points[promotionLevel + 1])
+		if (social >= jobs[jobLevel].points[promotionLevel + 1])
 		{
 			currentScreen = 'raise'
 			promotionLevel++
@@ -332,11 +332,11 @@ var Numpad = function()
 
 		this.watch()
 
-		if (job == 0)
+		if (jobLevel == 0)
 		{
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' + ' + numbers[1] + ' = ' + userInput)
 		}
-		else if (job == 1)
+		else if (jobLevel == 1)
 		{
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
 		}
@@ -356,7 +356,6 @@ var Numpad = function()
 		buttonClear.draw()
 		buttonDelete.draw()
 
-		// console.log(pressedButton.opacity, l.ctx.globalAlpha)
 		pressedButton.draw()
 
 		rain.applyPhysics().draw()
