@@ -15,8 +15,8 @@ var Inventory = function()
 
 	this.drawButton = function(buttonID, row)
 	{
-		typewriter.setPosition(padding, yPosition + padding * 3 * (row)).write(inventoryItems[buttonID])
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, yPosition + padding * 3 * (row)).write(inventoryPoints[buttonID] + ' SSP for $' + inventoryPrices[buttonID])
+		typewriter.setPosition(padding, yPosition + padding * 3 * (row)).write(inventoryItems[buttonID].name)
+		typewriter.setAlignment('right').setPosition(l.room.width - padding, yPosition + padding * 3 * (row)).write(inventoryItems[buttonID].points + ' SSP for $' + inventoryItems[buttonID].price)
 	}
 
 	this.watch = function()
@@ -25,18 +25,18 @@ var Inventory = function()
 		{
 			canClick = false
 
-			var clickedID = Math.floor(mouse.y / yPosition) - 1
+			var index = Math.floor(mouse.y / yPosition)
 
-			this.purchase(clickedID)
+			this.purchase(index)
 		}
 	}
 
-		this.purchase = function(id)
+		this.purchase = function(index)
 		{
-			if (money >= inventoryPrices[id])
+			if (money >= inventoryItems[index].price)
 			{
-				money -= inventoryPrices[id]
-				social += inventoryPoints[id]
+				money -= inventoryItems[index].price
+				social += inventoryItems[index].points
 			}
 		}
 

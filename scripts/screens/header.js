@@ -43,7 +43,7 @@ var Header = function()
 		pencil.setPosition(0, 0).setSize(l.room.width, this.height).setColor(orange).fillRectangle()
 
 		typewriter.setSize(size).setPosition(padding, topPadding).setAlignment('left').write('$' + money)
-		typewriter.setSize(size).setPosition(l.room.width / 2, topPadding).setAlignment('center').write(jobs[job])
+		typewriter.setSize(size).setPosition(l.room.width / 2, topPadding).setAlignment('center').write(jobs[job].name)
 		typewriter.setSize(size).setPosition(l.room.width - padding, topPadding).setAlignment('right').write('SSP ' + social)
 	}
 }

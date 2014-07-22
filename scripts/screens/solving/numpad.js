@@ -144,12 +144,12 @@ var Numpad = function()
 		{
 			game.setColor(lime)
 
-			this.makeItRain(salaries[job * 3 + promotionLevel])
+			this.makeItRain(jobs[job].salary[promotionLevel])
 
 			setTimeout(function()
 			{
 				answered++
-				money += salaries[job * 3 + promotionLevel]
+				money += jobs[job].salary[promotionLevel]
 
 				self.generateProblem()
 
@@ -176,7 +176,7 @@ var Numpad = function()
 	this.watch = function()
 	{
 		// Watch for raises and promotions
-		if (social >= points[job * 3 + promotionLevel + 1] && promotionLevel == 2)
+		if (social >= jobs[job].points[promotionLevel + 1] && promotionLevel == 2)
 		{
 			currentScreen = 'promotion'
 			job++
@@ -190,7 +190,7 @@ var Numpad = function()
 			}, 1500)
 		}
 
-		if (social >= points[job * 3 + promotionLevel + 1])
+		if (social >= jobs[job].points[promotionLevel + 1])
 		{
 			currentScreen = 'raise'
 			promotionLevel++
