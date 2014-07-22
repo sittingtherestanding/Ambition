@@ -1,98 +1,151 @@
 var Numpad = function()
 {
-	var size = 30
-	var entityPadding = size / 2 // Use entities as invisible buttons
-	var xPadding = size * 1.8
-	var yPadding = size * 2.25
+	var self = this
 
-	var columnOne = xPadding
-	var columnTwo = l.room.width / 2
-	var columnThree = l.room.width - xPadding
-
-	var rowOne = l.room.height - yPadding * 4
-	var rowTwo = l.room.height - yPadding * 3
-	var rowThree = l.room.height - yPadding * 2
-	var rowFour = l.room.height - yPadding
-
-	var typewriter = new Typewriter()
-		typewriter.setColor(maroon)
 	var pencil = new Pencil()
-	var problem = new Problem()
-		problem.generate()
+	var tool = new Tool()
+	var typewriter = new Typewriter()
+		typewriter.setSize(50).setAlignment('center').setColor(black).setFont('bebas_neueregular')
+
+	var header = new Header()
+
+	var buttonModifier = 3.25 // Larger numbers equal smaller buttons (3 is minimum)
+	var buttonSize = l.room.width / buttonModifier
+	var padding = (l.room.width / 2 - ((l.room.width / buttonModifier) / 2) - buttonSize) / 2
+
+	var columnOne = 0 + padding
+	var columnTwo = l.room.width / 2 - buttonSize / 2
+	var columnThree = l.room.width - buttonSize - padding
+
+	var rowZero = l.room.height - buttonSize * 4 - padding * 5
+	var rowOne = l.room.height - buttonSize * 4 - padding * 4
+	var rowTwo = l.room.height - buttonSize * 3 - padding * 3
+	var rowThree = l.room.height - buttonSize * 2 - padding * 2
+	var rowFour = l.room.height - buttonSize - padding
+
+	var numbers = new Array()
+	var problemPosition = (rowZero - header.height) / 2
 
 	var numberOne = new Entity()
 		numberOne.setSprite('svg/one.svg')
-				 .setPosition(columnOne, rowOne + entityPadding)
-				 .setSize(size * 2, size * 2)
-				 .setAnchor(size, size)
+				 .setStretch(buttonSize, buttonSize, true, true)
+				 .setPosition(columnOne, rowOne)
 
 	var numberTwo = new Entity()
 		numberTwo.setSprite('svg/two.svg')
-				 .setPosition(columnTwo, rowOne + entityPadding)
-				 .setSize(size * 2, size * 2)
-				 .setAnchor(size, size)
+				 .setStretch(buttonSize, buttonSize, true, true)
+				 .setPosition(columnTwo, rowOne)
 
 	var numberThree = new Entity()
 		numberThree.setSprite('svg/three.svg')
-				   .setPosition(columnThree, rowOne + entityPadding)
-				   .setSize(size * 2, size * 2)
-				   .setAnchor(size, size)
+				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setPosition(columnThree, rowOne)
 
 	var numberFour = new Entity()
 		numberFour.setSprite('svg/four.svg')
-				  .setPosition(columnOne, rowTwo + entityPadding)
-				  .setSize(size * 2, size * 2)
-				  .setAnchor(size, size)
+				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setPosition(columnOne, rowTwo)
 
 	var numberFive = new Entity()
 		numberFive.setSprite('svg/five.svg')
-				  .setPosition(columnTwo, rowTwo + entityPadding)
-				  .setSize(size * 2, size * 2)
-				  .setAnchor(size, size)
+				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setPosition(columnTwo, rowTwo)
 
 	var numberSix = new Entity()
 		numberSix.setSprite('svg/six.svg')
-				 .setPosition(columnThree, rowTwo + entityPadding)
-				 .setSize(size * 2, size * 2)
-				 .setAnchor(size, size)
+				 .setStretch(buttonSize, buttonSize, true, true)
+				 .setPosition(columnThree, rowTwo)
 
 	var numberSeven = new Entity()
 		numberSeven.setSprite('svg/seven.svg')
-				   .setPosition(columnOne, rowThree + entityPadding)
-				   .setSize(size * 2, size * 2)
-				   .setAnchor(size, size)
+				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setPosition(columnOne, rowThree)
 
 	var numberEight = new Entity()
 		numberEight.setSprite('svg/eight.svg')
-				   .setPosition(columnTwo, rowThree + entityPadding)
-				   .setSize(size * 2, size * 2)
-				   .setAnchor(size, size)
+				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setPosition(columnTwo, rowThree)
 
 	var numberNine = new Entity()
 		numberNine.setSprite('svg/nine.svg')
-				  .setPosition(columnThree, rowThree + entityPadding)
-				  .setSize(size * 2, size * 2)
-				  .setAnchor(size, size)
+				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setPosition(columnThree, rowThree)
 
 	var numberZero = new Entity()
 		numberZero.setSprite('svg/zero.svg')
-				  .setPosition(columnTwo, rowFour + entityPadding)
-				  .setSize(size * 2, size * 2)
-				  .setAnchor(size, size)
+				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setPosition(columnTwo, rowFour)
 
 	var buttonClear = new Entity()
 		buttonClear.setSprite('svg/clear.svg')
-				   .setPosition(columnOne, rowFour + entityPadding)
-				   .setSize(size * 2, size * 2)
-				   .setAnchor(size, size)
+				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setPosition(columnOne, rowFour)
 
 	var buttonDelete = new Entity()
 		buttonDelete.setSprite('svg/delete.svg')
-					.setPosition(columnThree, rowFour + entityPadding)
-					.setSize(size * 2, size * 2)
-					.setAnchor(size, size)
+					.setStretch(buttonSize, buttonSize, true, true)
+					.setPosition(columnThree, rowFour)
 
 	var canClick = true
+
+	this.generateProblem = function()
+	{
+		if (job == 0) // Single-digit addition
+		{
+			var cap = 9
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+		}
+		else if (job == 1) // Single-digit subtraction (no negatives)
+		{
+			var cap = 9
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+
+			while (numbers[0] - numbers[1] < 0)
+			{
+				numbers[0] = Math.round(tool.random(0, cap))
+				numbers[1] = Math.round(tool.random(0, cap))
+			}
+		}
+
+		userInput = '0'
+	}
+
+	this.check = function()
+	{
+		if (job == 0)
+		{
+			if (parseInt(userInput) == (numbers[0] + numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (job == 1)
+		{
+			if (parseInt(userInput) == (numbers[0] - numbers[1]))
+			{
+				this.pass()
+			}
+		}
+	}
+
+		this.pass = function()
+		{
+			game.setColor(lime)
+
+			setTimeout(function()
+			{
+				answered++
+				money += salaries[job * 3 + promotionLevel]
+
+				self.generateProblem()
+
+				game.setColor(aqua)
+			}, 750)
+		}
 
 	this.watch = function()
 	{
@@ -180,7 +233,7 @@ var Numpad = function()
 				userInput += input
 			}
 
-			problem.check()
+			this.check()
 		}
 
 	this.draw = function()
@@ -192,9 +245,16 @@ var Numpad = function()
 
 		this.watch()
 
-		problem.draw()
+		if (job == 0)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' + ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (job == 1)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
+		}
 
-		pencil.setPosition(0, rowOne - yPadding).setColor(black).setSize(l.room.width, l.room.height - (rowOne - yPadding)).fillRectangle()
+		pencil.setPosition(0, rowZero).setColor(black).setSize(l.room.width, l.room.height - rowZero).fillRectangle()
 
 		numberOne.draw()
 		numberTwo.draw()
@@ -205,11 +265,8 @@ var Numpad = function()
 		numberSeven.draw()
 		numberEight.draw()
 		numberNine.draw()
+		numberZero.draw()
 		buttonClear.draw()
 		buttonDelete.draw()
-
-		pencil.setPosition(0, rowOne - yPadding).setColor(maroon).setSize(l.room.width, yPadding * 0.75).fillRectangle()
-
-		typewriter.setColor(game.color).setAlignment('left').setFont('liquid_crystalregular').setSize(size * 1.5).setPosition(xPadding / 4, rowOne - yPadding).write(userInput)
 	}
 }

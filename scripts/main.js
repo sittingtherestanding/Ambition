@@ -1,5 +1,6 @@
 var header = new Header()
 var numpad = new Numpad()
+	numpad.generateProblem()
 var inventory = new Inventory()
 var promotion = new Promotion()
 var raise = new Raise()
