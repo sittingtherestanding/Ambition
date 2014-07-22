@@ -111,7 +111,7 @@ var Numpad = function()
 			}
 		}
 
-		userInput = '0'
+		userInput = '?'
 	}
 
 	this.check = function()
@@ -205,7 +205,7 @@ var Numpad = function()
 
 			if (mouse.checkLeftClicked(buttonClear))
 			{
-				userInput = '0'
+				userInput = '?'
 			}
 
 			if (mouse.checkLeftClicked(buttonDelete))
@@ -216,7 +216,7 @@ var Numpad = function()
 				}
 				else
 				{
-					userInput = '0'
+					userInput = '?'
 				}
 			}
 		}
@@ -224,7 +224,7 @@ var Numpad = function()
 
 		this.addInput = function(input)
 		{
-			if (userInput == '0')
+			if (userInput == '?')
 			{
 				userInput = input
 			}

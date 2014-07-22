@@ -32,7 +32,7 @@ var social = 0
 var job = 0
 var promotionLevel = 0 // An int modifier used to calculate payment
 
-var userInput = '0'
+var userInput = '?'
 var answered = 0
 
 var jobs = [

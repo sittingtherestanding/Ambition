@@ -3,7 +3,9 @@ var Inventory = function()
 	var size = 20
 	var padding = 15
 
-	var yPosition = padding
+	var header = new Header()
+
+	var yPosition = header.height + padding
 
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular')
@@ -13,8 +15,8 @@ var Inventory = function()
 
 	this.drawButton = function(buttonID, row)
 	{
-		typewriter.setPosition(padding, yPosition + padding * 3 * (row + 1)).write(inventoryItems[buttonID])
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, yPosition + padding * 3 * (row + 1)).write(inventoryPoints[buttonID] + ' SSP for $' + inventoryPrices[buttonID])
+		typewriter.setPosition(padding, yPosition + padding * 3 * (row)).write(inventoryItems[buttonID])
+		typewriter.setAlignment('right').setPosition(l.room.width - padding, yPosition + padding * 3 * (row)).write(inventoryPoints[buttonID] + ' SSP for $' + inventoryPrices[buttonID])
 	}
 
 	this.watch = function()
