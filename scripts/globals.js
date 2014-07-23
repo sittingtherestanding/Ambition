@@ -30,6 +30,7 @@ var social = 0 // A straight int keeping track of your SSP
 var jobLevel = 0 // The 'jobs' index marking your current job level
 var promotionLevel = 0 // The 'jobs' index marking your current promotion level
 
+var numbers = new Array() // The list of ints used to display math problems
 var userInput = '?'
 var answered = 0
 

@@ -1,6 +1,7 @@
 var Notifier = function()
 {
 	var header = new Header()
+	var numpad = new Numpad() // Used for regenerating problems on promotion
 
 	var backgroundColor = yellow
 	var color = maroon
@@ -41,6 +42,8 @@ var Notifier = function()
 		{
 			jobLevel++
 			promotionLevel = 0
+
+			numpad.generateProblem()
 
 			this.notify('promotion')
 		}

@@ -22,7 +22,6 @@ var Numpad = function()
 	var rowThree = l.room.height - buttonSize * 2 - padding * 2
 	var rowFour = l.room.height - buttonSize - padding
 
-	var numbers = new Array()
 	var problemPosition = (this.top - header.height) / 2
 
 	var rain = new Group()
@@ -104,7 +103,7 @@ var Numpad = function()
 			numbers[0] = Math.round(tool.random(0, cap))
 			numbers[1] = Math.round(tool.random(0, cap))
 		}
-		else if (jobLevel == 1) // Single-digit subtraction (no negatives)
+		else if (jobLevel >= 1) // Single-digit subtraction (no negatives)
 		{
 			var cap = 9
 
