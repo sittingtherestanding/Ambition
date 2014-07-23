@@ -6,7 +6,6 @@ var Numpad = function()
 	var tool = new Tool()
 	var typewriter = new Typewriter()
 		typewriter.setSize(50).setAlignment('center').setColor(black).setFont('bebas_neueregular')
-
 	var header = new Header()
 
 	var buttonModifier = 3.1 // Larger numbers equal smaller buttons (3 is minimum)
@@ -17,14 +16,14 @@ var Numpad = function()
 	var columnTwo = l.room.width / 2 - buttonSize / 2
 	var columnThree = l.room.width - buttonSize - padding
 
-	var rowZero = l.room.height - buttonSize * 4 - padding * 5
+	this.top = l.room.height - buttonSize * 4 - padding * 5
 	var rowOne = l.room.height - buttonSize * 4 - padding * 4
 	var rowTwo = l.room.height - buttonSize * 3 - padding * 3
 	var rowThree = l.room.height - buttonSize * 2 - padding * 2
 	var rowFour = l.room.height - buttonSize - padding
 
 	var numbers = new Array()
-	var problemPosition = (rowZero - header.height) / 2
+	var problemPosition = (this.top - header.height) / 2
 
 	var rain = new Group()
 
@@ -175,34 +174,6 @@ var Numpad = function()
 
 	this.watch = function()
 	{
-		// Watch for raises and promotions
-		if (social >= jobs[jobLevel].points[promotionLevel + 1] && promotionLevel == 2)
-		{
-			currentScreen = 'promotionLevel'
-			jobLevel++
-			promotionLevel = 0
-
-			setTimeout(function()
-			{
-				game.color = teal
-				currentScreen = 'solving'
-				self.generateProblem()
-			}, 1500)
-		}
-
-		if (social >= jobs[jobLevel].points[promotionLevel + 1])
-		{
-			currentScreen = 'raise'
-			promotionLevel++
-
-			setTimeout(function()
-			{
-				game.color = teal
-				currentScreen = 'solving'
-				self.generateProblem()
-			}, 1500)
-		}
-
 		// Check button presses
 		if (canClick && mouse.leftClick)
 		{
@@ -341,7 +312,7 @@ var Numpad = function()
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
 		}
 
-		pencil.setPosition(0, rowZero).setColor(black).setSize(l.room.width, l.room.height - rowZero).fillRectangle()
+		pencil.setPosition(0, this.top).setColor(black).setSize(l.room.width, l.room.height - this.top).fillRectangle()
 
 		numberOne.draw()
 		numberTwo.draw()

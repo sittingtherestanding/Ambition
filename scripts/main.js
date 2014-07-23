@@ -1,14 +1,15 @@
 var mouse = new Mouse()
 
+var notifier = new Notifier()
 var header = new Header()
 var numpad = new Numpad()
 	numpad.generateProblem()
 var inventory = new Inventory()
-var promotion = new Promotion()
-var raise = new Raise()
 
 var main = function()
 {
+	notifier.watch()
+
 	game.blank()
 
 	header.draw() // Draw the header on every screen
@@ -21,14 +22,8 @@ var main = function()
 	{
 		inventory.draw()
 	}
-	else if (currentScreen == 'promotion')
-	{
-		promotion.draw()
-	}
-	else if (currentScreen == 'raise')
-	{
-		raise.draw()
-	}
+
+	notifier.draw()
 
 	game.draw()
 }
