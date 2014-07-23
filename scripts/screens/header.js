@@ -20,13 +20,13 @@ var Header = function()
 
 			if (mouse.y < this.height)
 			{
-				if (currentScreen == 'store')
+				if (!displayMenu)
 				{
-					currentScreen = 'solving'
+					displayMenu = true
 				}
 				else
 				{
-					currentScreen = 'store'
+					displayMenu = false
 				}
 			}
 		}

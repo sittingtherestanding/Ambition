@@ -174,7 +174,7 @@ var Numpad = function()
 	this.watch = function()
 	{
 		// Check button presses
-		if (canClick && mouse.leftClick)
+		if (canClick && mouse.leftClick && !displayMenu)
 		{
 			canClick = false
 

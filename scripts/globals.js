@@ -22,7 +22,8 @@ var game = new Lorina()
 		.setRoomSize(320, 568)
 		.setDomSize(320, 568)
 
-var currentScreen = 'solving'
+var currentScreen = 'solve'
+var displayMenu = false
 
 var money = 0 // A straight int that keeps track of money
 var social = 0 // A straight int keeping track of your SSP

@@ -2,6 +2,7 @@ var mouse = new Mouse()
 
 var notifier = new Notifier()
 var header = new Header()
+var menu = new Menu()
 var numpad = new Numpad()
 	numpad.generateProblem()
 var inventory = new Inventory()
@@ -14,7 +15,7 @@ var main = function()
 
 	header.draw() // Draw the header on every screen
 
-	if (currentScreen == 'solving')
+	if (currentScreen == 'solve')
 	{
 		numpad.draw()
 	}
@@ -24,6 +25,8 @@ var main = function()
 	}
 
 	notifier.draw()
+
+	menu.draw()
 
 	game.draw()
 }
