@@ -49,13 +49,31 @@ var Header = function()
 
 		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + topPadding).setAlignment('center')
 
-		if (solved == 1)
+		if (currentScreen == 'solve' || currentScreen == 'invest')
 		{
-			typewriter.write(solved + ' problem solved')
+			if (solved == 1)
+			{
+				typewriter.write(solved + ' problem solved')
+			}
+			else
+			{
+				typewriter.write(solved + ' problems solved')
+			}
 		}
-		else
+		else if (currentScreen == 'store')
 		{
-			typewriter.write(solved + ' problems solved')
+			var toPromotion
+
+			if (promotionLevel == 2)
+			{
+				toPromotion = jobs[jobLevel + 1].points[0]
+			}
+			else
+			{
+				toPromotion = jobs[jobLevel].points[promotionLevel + 1]
+			}
+
+			typewriter.write(toPromotion + ' SSP to next promotion')
 		}
 	}
 }

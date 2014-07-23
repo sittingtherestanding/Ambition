@@ -5,6 +5,7 @@ var Menu = function()
 	var backgroundColor = yellow
 	var buttonColor = maroon
 	var color = white
+	var activeColor = lime
 	var padding = 16
 	var height = 100
 	var solveButtonY = header.height + padding
@@ -14,7 +15,7 @@ var Menu = function()
 
 	var pencil = new Pencil()
 	var typewriter = new Typewriter()
-		typewriter.setFont('bebas_neueregular').setColor(color).setSize(size)
+		typewriter.setFont('bebas_neueregular').setSize(size)
 
 	this.watch = function()
 	{
@@ -56,8 +57,37 @@ var Menu = function()
 			pencil.setPosition(padding, storeButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Store button background
 			pencil.setPosition(padding, investButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Invest button background
 		
+			if (currentScreen == 'solve')
+			{
+				typewriter.setColor(activeColor)
+			}
+			else
+			{
+				typewriter.setColor(color)
+			}
+
 			typewriter.setPosition(l.room.width / 2, solveButtonY + height / 2 - size / 1.5).setAlignment('center').write('solve')
+
+			if (currentScreen == 'store')
+			{
+				typewriter.setColor(activeColor)
+			}
+			else
+			{
+				typewriter.setColor(color)
+			}
+
 			typewriter.setPosition(l.room.width / 2, storeButtonY + height / 2 - size / 1.5).setAlignment('center').write('store')
+
+			if (currentScreen == 'invest')
+			{
+				typewriter.setColor(activeColor)
+			}
+			else
+			{
+				typewriter.setColor(color)
+			}
+
 			typewriter.setPosition(l.room.width / 2, investButtonY + height / 2 - size / 1.5).setAlignment('center').write('invest')
 		}
 	}

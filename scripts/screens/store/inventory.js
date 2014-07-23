@@ -5,7 +5,7 @@ var Inventory = function()
 
 	var header = new Header()
 
-	var top = header.height + padding
+	var top = header.height + padding * 2
 	var itemSize = padding * 3
 
 	var opacity = 1
