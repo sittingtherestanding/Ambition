@@ -14,7 +14,7 @@ var Inventory = function()
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular')
 
-	var canClick = true
+	var canClick = false
 
 	this.drawButton = function(buttonID)
 	{
@@ -37,7 +37,7 @@ var Inventory = function()
 		{
 			canClick = false
 
-			var index = Math.floor((mouse.y - header.height) / itemSize)
+			var index = Math.floor((mouse.y - top) / itemSize)
 
 			if (index >= 0) // Make it so we can't click on the header to buy things
 			{
