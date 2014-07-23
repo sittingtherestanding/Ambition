@@ -167,8 +167,8 @@ var Numpad = function()
 							  .setAnchor(25, 12)
 							  .setStretch(tool.random(50, 100), tool.random(25, 50))
 							  .setFriction(0)
-							  .spin(tool.random(1, 3))
-							  .pushTowardDegree(tool.random(140, 40), tool.random(5, 10))
+							  .spin(tool.random(-6, 6))
+							  .pushTowardDegree(tool.random(140, 40), tool.random(8, 12))
 					rain.add(dollar)
 				}
 			}
@@ -356,7 +356,7 @@ var Numpad = function()
 		buttonClear.draw()
 		buttonDelete.draw()
 
-		pressedButton.draw()
+		pressedButton.draw().banish()
 
 		rain.applyPhysics().draw()
 	}
