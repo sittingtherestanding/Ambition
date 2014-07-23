@@ -8,15 +8,27 @@ var Inventory = function()
 	var top = header.height + padding
 	var itemSize = padding * 3
 
+	var opacity = 1
+	var blurred = 0.35
+
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular')
 
 	var canClick = true
 
-	this.drawButton = function(buttonID, row)
+	this.drawButton = function(buttonID)
 	{
-		typewriter.setPosition(padding, top + itemSize * (row)).write(inventoryItems[buttonID].name)
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (row)).write('$' + inventoryItems[buttonID].price + ' for ' + inventoryItems[buttonID].points + ' SSP')
+		if (!inventoryItems[buttonID].purchased)
+		{
+			opacity = 1
+		}
+		else
+		{
+			opacity = blurred
+		}
+
+		typewriter.setOpacity(opacity).setPosition(padding, top + itemSize * (buttonID)).write(inventoryItems[buttonID].name)
+		typewriter.setOpacity(opacity).setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (buttonID)).write('$' + inventoryItems[buttonID].price + ' for ' + inventoryItems[buttonID].points + ' SSP')
 	}
 
 	this.watch = function()
@@ -36,10 +48,12 @@ var Inventory = function()
 
 		this.purchase = function(index)
 		{
-			if (money >= inventoryItems[index].price)
+			if (money >= inventoryItems[index].price && !inventoryItems[index].purchased)
 			{
 				money -= inventoryItems[index].price
 				social += inventoryItems[index].points
+
+				inventoryItems[index].purchased = true
 			}
 		}
 
@@ -55,7 +69,7 @@ var Inventory = function()
 		var i = inventoryItems.length
 		while (i--)
 		{
-			this.drawButton(i, i)
+			this.drawButton(i)
 		}
 	}
 }

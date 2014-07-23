@@ -24,7 +24,7 @@ var game = new Lorina()
 
 var currentScreen = 'solving'
 
-var money = 5000 // A straight int that keeps track of money
+var money = 5000000000 // A straight int that keeps track of money
 var social = 0 // A straight int keeping track of your SSP
 
 var jobLevel = 0 // The 'jobs' index marking your current job level
@@ -120,61 +120,73 @@ var inventoryItems = [
 	{
 		name: 'hair cut',
 		price: 20,
-		points: 5
+		points: 5,
+		purchased: false
 	},
 	{
 		name: 'nice clothes',
 		price: 50,
-		points: 12
+		points: 12,
+		purchased: false
 	},
 	{
 		name: 'gym membership',
 		price: 100,
-		points: 25
+		points: 25,
+		purchased: false
 	},
 	{
 		name: 'cologne/perfume',
 		price: 150,
-		points: 50
+		points: 50,
+		purchased: false
 	},
 	{
 		name: 'slick shoes',
 		price: 200,
-		points: 100
+		points: 100,
+		purchased: false
 	},
 	{
 		name: 'fancy business cards',
 		price: 350,
-		points: 250
+		points: 250,
+		purchased: false
 	},
 	{
 		name: 'travel experience',
 		price: 1000,
-		points: 500
+		points: 500,
+		purchased: false
 	},
 	{
 		name: 'new car',
 		price: 10000,
-		points: 1000
+		points: 1000,
+		purchased: false
 	},
 	{
 		name: 'plastic surgery',
 		price: 25000,
-		points: 2500
+		points: 2500,
+		purchased: false
 	},
 	{
 		name: 'managerial courses',
 		price: 35000,
-		points: 5000
+		points: 5000,
+		purchased: false
 	},
 	{
 		name: 'real estate',
 		price: 75000,
-		points: 10000
+		points: 10000,
+		purchased: false
 	},
 	{
 		name: 'airplane',
 		price: 150000,
-		points: 100000
+		points: 100000,
+		purchased: false
 	}
 ]
