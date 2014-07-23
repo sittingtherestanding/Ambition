@@ -146,7 +146,7 @@ var Numpad = function()
 
 			setTimeout(function()
 			{
-				answered++
+				solved++
 				money += jobs[jobLevel].salary[promotionLevel]
 
 				self.generateProblem()
