@@ -48,7 +48,7 @@ var Header = function()
 
 		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + yText).setAlignment('center')
 
-		if (currentScreen == 'solve' || currentScreen == 'invest')
+		if (currentScreen == 'earn' || currentScreen == 'invest')
 		{
 			if (solved == 1)
 			{
@@ -59,7 +59,7 @@ var Header = function()
 				typewriter.write(solved + ' problems solved')
 			}
 		}
-		else if (currentScreen == 'store')
+		else if (currentScreen == 'spend')
 		{
 			var toPromotion
 

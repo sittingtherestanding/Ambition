@@ -15,11 +15,11 @@ var main = function()
 
 	header.draw() // Draw the header on every screen
 
-	if (currentScreen == 'solve')
+	if (currentScreen == 'earn')
 	{
 		numpad.draw()
 	}
-	else if (currentScreen == 'store')
+	else if (currentScreen == 'spend')
 	{
 		inventory.draw()
 	}

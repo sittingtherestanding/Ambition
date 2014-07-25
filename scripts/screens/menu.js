@@ -27,12 +27,12 @@ var Menu = function()
 				{
 					if (mouse.y > solveButtonY && mouse.y < solveButtonY + height)
 					{
-						currentScreen = 'solve'
+						currentScreen = 'earn'
 						displayMenu = false
 					}
 					else if (mouse.y > storeButtonY && mouse.y < storeButtonY + height)
 					{
-						currentScreen = 'store'
+						currentScreen = 'spend'
 						displayMenu = false
 					}
 					else if (mouse.y > investButtonY && mouse.y < investButtonY + height)
@@ -53,11 +53,11 @@ var Menu = function()
 		{
 			pencil.setPosition(0, header.height).setSize(l.room.width, padding * 4 + height * 3).setColor(backgroundColor).fillRectangle() // Menu background
 
-			pencil.setPosition(padding, solveButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Solve button background
-			pencil.setPosition(padding, storeButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Store button background
+			pencil.setPosition(padding, solveButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Earn button background
+			pencil.setPosition(padding, storeButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Spend button background
 			pencil.setPosition(padding, investButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Invest button background
 		
-			if (currentScreen == 'solve')
+			if (currentScreen == 'earn')
 			{
 				typewriter.setColor(activeColor)
 			}
@@ -66,9 +66,9 @@ var Menu = function()
 				typewriter.setColor(color)
 			}
 
-			typewriter.setPosition(l.room.width / 2, solveButtonY + height / 2).setAlignment('center').write('solve')
+			typewriter.setPosition(l.room.width / 2, solveButtonY + height / 2).setAlignment('center').write('earn')
 
-			if (currentScreen == 'store')
+			if (currentScreen == 'spend')
 			{
 				typewriter.setColor(activeColor)
 			}
@@ -77,7 +77,7 @@ var Menu = function()
 				typewriter.setColor(color)
 			}
 
-			typewriter.setPosition(l.room.width / 2, storeButtonY + height / 2).setAlignment('center').write('store')
+			typewriter.setPosition(l.room.width / 2, storeButtonY + height / 2).setAlignment('center').write('spend')
 
 			if (currentScreen == 'invest')
 			{

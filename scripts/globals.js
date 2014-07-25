@@ -22,7 +22,7 @@ var game = new Lorina()
 		.setRoomSize(320, 568)
 		.setDomSize(320, 568)
 
-var currentScreen = 'solve'
+var currentScreen = 'earn'
 var displayMenu = false
 
 var money = 5000 // A straight int that keeps track of money

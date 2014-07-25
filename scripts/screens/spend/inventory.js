@@ -36,7 +36,7 @@ var Inventory = function()
 
 		this.purchase = function(index)
 		{
-			if (money >= inventoryItems[index].price) // && !inventoryItems[index].purchased)
+			if (money >= inventoryItems[index].price && !displayMenu)
 			{
 				money -= inventoryItems[index].price
 				social += inventoryItems[index].points
