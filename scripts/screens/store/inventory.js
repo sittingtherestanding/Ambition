@@ -18,6 +18,7 @@ var Inventory = function()
 
 	this.drawButton = function(buttonID)
 	{
+		/*
 		if (!inventoryItems[buttonID].purchased)
 		{
 			opacity = 1
@@ -26,6 +27,7 @@ var Inventory = function()
 		{
 			opacity = blurred
 		}
+		*/
 
 		typewriter.setOpacity(opacity).setPosition(padding, top + itemSize * (buttonID)).write(inventoryItems[buttonID].name)
 		typewriter.setOpacity(opacity).setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (buttonID)).write('$' + inventoryItems[buttonID].price + ' for ' + inventoryItems[buttonID].points + ' SSP')
@@ -48,7 +50,7 @@ var Inventory = function()
 
 		this.purchase = function(index)
 		{
-			if (money >= inventoryItems[index].price && !inventoryItems[index].purchased)
+			if (money >= inventoryItems[index].price) // && !inventoryItems[index].purchased)
 			{
 				money -= inventoryItems[index].price
 				social += inventoryItems[index].points

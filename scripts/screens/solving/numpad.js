@@ -96,14 +96,41 @@ var Numpad = function()
 
 	this.generateProblem = function()
 	{
-		if (jobLevel == 0) // Single-digit addition
+		if (jobLevel >= 14)
+		{
+			promblemType = 12
+		}
+		else if (jobLevel == 13)
+		{
+			var shoe = 8
+			var cap = 11
+
+			problemType = Math.round(tool.random(shoe, cap))
+		}
+		else if (jobLevel > 8)
+		{
+			problemType = jobLevel - 1
+		}
+		else if (jobLevel == 8)
+		{
+			var shoe = 2
+			var cap = 5
+
+			problemType = Math.round(tool.random(shoe, cap))
+		}
+		else
+		{
+			problemType = jobLevel
+		}
+
+		if (problemType == 0) // Single-digit addition
 		{
 			var cap = 9
 
 			numbers[0] = Math.round(tool.random(0, cap))
 			numbers[1] = Math.round(tool.random(0, cap))
 		}
-		else if (jobLevel >= 1) // Single-digit subtraction (no negatives)
+		else if (problemType == 1) // Single-digit subtraction (no negatives)
 		{
 			var cap = 9
 
@@ -116,22 +143,206 @@ var Numpad = function()
 				numbers[1] = Math.round(tool.random(0, cap))
 			}
 		}
+		else if (problemType == 2) // Double-digit addition
+		{
+			var cap = 25
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+		}
+		else if (problemType == 3) // Double-digit subtraction (no negatives)
+		{
+			var cap = 20
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+
+			while (numbers[0] - numbers[1] < 0)
+			{
+				numbers[0] = Math.round(tool.random(0, cap))
+				numbers[1] = Math.round(tool.random(0, cap))
+			}
+		}
+		else if (problemType == 4) // Single-digit multiplication
+		{
+			var cap = 9
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+		}
+		else if (problemType == 5) // Single-digit division
+		{
+			var cap = 9
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+
+			while (numbers[0] / numbers[1] % 1 !== 0)
+			{
+				numbers[0] = Math.round(tool.random(0, cap))
+				numbers[1] = Math.round(tool.random(0, cap))
+			}
+		}
+		else if (problemType == 6) // Double-digit addition
+		{
+			var shoe = 25
+			var cap = 99
+
+			numbers[0] = Math.round(tool.random(shoe, cap))
+			numbers[1] = Math.round(tool.random(shoe, cap))
+		}
+		else if (problemType == 7) // Double-digit subtraction
+		{
+			var shoe = 25
+			var cap = 99
+
+			numbers[0] = Math.round(tool.random(shoe, cap))
+			numbers[1] = Math.round(tool.random(shoe, cap))
+
+			while (numbers[0] - numbers[1] < 0)
+			{
+				numbers[0] = Math.round(tool.random(shoe, cap))
+				numbers[1] = Math.round(tool.random(shoe, cap))
+			}
+		}
+		else if (problemType == 8) // Triple-digit addition
+		{
+			var shoe = 100
+			var cap = 999
+
+			numbers[0] = Math.round(tool.random(shoe, cap))
+			numbers[1] = Math.round(tool.random(shoe, cap))
+		}
+		else if (problemType == 9) // Triple-digit subtraction
+		{
+			var shoe = 100
+			var cap = 999
+
+			numbers[0] = Math.round(tool.random(shoe, cap))
+			numbers[1] = Math.round(tool.random(shoe, cap))
+
+			while (numbers[0] - numbers[1] < 0)
+			{
+				numbers[0] = Math.round(tool.random(shoe, cap))
+				numbers[1] = Math.round(tool.random(shoe, cap))
+			}
+		}
+		else if (problemType == 10) // Double-digit multiplication
+		{
+			var shoe = 10
+			var cap = 25
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+		}
+		else if (problemType == 11) // Double-digit division
+		{
+			var shoe = 10
+			var cap = 25
+
+			numbers[0] = Math.round(tool.random(0, cap))
+			numbers[1] = Math.round(tool.random(0, cap))
+
+			while (numbers[0] / numbers[1] % 1 !== 0)
+			{
+				numbers[0] = Math.round(tool.random(0, cap))
+				numbers[1] = Math.round(tool.random(0, cap))
+			}
+		}
+		else if (problemType == 12) // Quadrupal-digit addition
+		{
+			var shoe = 1000
+			var cap = 9999
+
+			numbers[0] = Math.round(tool.random(shoe, cap))
+			numbers[1] = Math.round(tool.random(shoe, cap))
+		}
 
 		userInput = '?'
 	}
 
 	this.check = function()
 	{
-		if (jobLevel == 0)
+		if (problemType == 0)
 		{
 			if (parseInt(userInput) == (numbers[0] + numbers[1]))
 			{
 				this.pass()
 			}
 		}
-		else if (jobLevel == 1)
+		else if (problemType == 1)
 		{
 			if (parseInt(userInput) == (numbers[0] - numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 2)
+		{
+			if (parseInt(userInput) == (numbers[0] + numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 3)
+		{
+			if (parseInt(userInput) == (numbers[0] - numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 4)
+		{
+			if (parseInt(userInput) == (numbers[0] * numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 5)
+		{
+			if (parseInt(userInput) == (numbers[0] / numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 6)
+		{
+			if (parseInt(userInput) == (numbers[0] + numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 7)
+		{
+			if (parseInt(userInput) == (numbers[0] - numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 8)
+		{
+			if (parseInt(userInput) == (numbers[0] + numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 9)
+		{
+			if (parseInt(userInput) == (numbers[0] - numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 10)
+		{
+			if (parseInt(userInput) == (numbers[0] * numbers[1]))
+			{
+				this.pass()
+			}
+		}
+		else if (problemType == 11)
+		{
+			if (parseInt(userInput) == (numbers[0] / numbers[1]))
 			{
 				this.pass()
 			}
@@ -302,13 +513,53 @@ var Numpad = function()
 
 		this.watch()
 
-		if (jobLevel == 0)
+		if (problemType == 0)
 		{
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' + ' + numbers[1] + ' = ' + userInput)
 		}
-		else if (jobLevel == 1)
+		else if (problemType == 1)
 		{
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 2)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' + ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 3)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 4)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' * ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 5)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' / ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 6)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' + ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 7)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 8)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' + ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 9)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' - ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 10)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' * ' + numbers[1] + ' = ' + userInput)
+		}
+		else if (problemType == 11)
+		{
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' / ' + numbers[1] + ' = ' + userInput)
 		}
 
 		pencil.setPosition(0, this.top).setColor(black).setSize(l.room.width, l.room.height - this.top).fillRectangle()
