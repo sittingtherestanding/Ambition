@@ -5,7 +5,7 @@ var Numpad = function()
 	var pencil = new Pencil()
 	var tool = new Tool()
 	var typewriter = new Typewriter()
-		typewriter.setSize(50).setAlignment('center').setColor(black).setFont('bebas_neueregular')
+		typewriter.setSize(50).setAlignment('center').setColor(black).setFont('bebas_neueregular').setBaseline('middle')
 	var header = new Header()
 
 	var buttonModifier = 3.1 // Larger numbers equal smaller buttons (3 is minimum)
@@ -22,7 +22,7 @@ var Numpad = function()
 	var rowThree = l.room.height - buttonSize * 2 - padding * 2
 	var rowFour = l.room.height - buttonSize - padding
 
-	var problemPosition = (this.top - header.height) / 2
+	var problemPosition = header.height + (this.top - header.height) / 2
 
 	var rain = new Group()
 

@@ -1,13 +1,12 @@
 var Header = function()
 {
 	var padding = 10
-	var topPadding = 5
-	var size = 17
-	var bottomPadding = 10
-	this.height = topPadding + size + bottomPadding
+	var size = 18
+	this.height = padding * 3
+	var yText = this.height / 2
 
 	var typewriter = new Typewriter()
-		typewriter.setFont('bebas_neueregular')
+		typewriter.setFont('bebas_neueregular').setBaseline('middle')
 	var pencil = new Pencil()
 
 	var canClick = true
@@ -43,11 +42,11 @@ var Header = function()
 		pencil.setPosition(0, 0).setSize(l.room.width, this.height).setColor(orange).fillRectangle()
 
 		typewriter.setColor(maroon)
-		typewriter.setSize(size).setPosition(padding, topPadding).setAlignment('left').write('$' + money)
-		typewriter.setSize(size).setPosition(l.room.width / 2, topPadding).setAlignment('center').write(jobs[jobLevel].name)
-		typewriter.setSize(size).setPosition(l.room.width - padding, topPadding).setAlignment('right').write('SSP ' + social)
+		typewriter.setSize(size).setPosition(padding, yText).setAlignment('left').write('$' + money)
+		typewriter.setSize(size).setPosition(l.room.width / 2, yText).setAlignment('center').write(jobs[jobLevel].name)
+		typewriter.setSize(size).setPosition(l.room.width - padding, yText).setAlignment('right').write('SSP ' + social)
 
-		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + topPadding).setAlignment('center')
+		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + yText).setAlignment('center')
 
 		if (currentScreen == 'solve' || currentScreen == 'invest')
 		{

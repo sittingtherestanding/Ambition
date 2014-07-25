@@ -15,7 +15,7 @@ var Menu = function()
 
 	var pencil = new Pencil()
 	var typewriter = new Typewriter()
-		typewriter.setFont('bebas_neueregular').setSize(size)
+		typewriter.setFont('bebas_neueregular').setSize(size).setBaseline('middle')
 
 	this.watch = function()
 	{
@@ -66,7 +66,7 @@ var Menu = function()
 				typewriter.setColor(color)
 			}
 
-			typewriter.setPosition(l.room.width / 2, solveButtonY + height / 2 - size / 1.5).setAlignment('center').write('solve')
+			typewriter.setPosition(l.room.width / 2, solveButtonY + height / 2).setAlignment('center').write('solve')
 
 			if (currentScreen == 'store')
 			{
@@ -77,7 +77,7 @@ var Menu = function()
 				typewriter.setColor(color)
 			}
 
-			typewriter.setPosition(l.room.width / 2, storeButtonY + height / 2 - size / 1.5).setAlignment('center').write('store')
+			typewriter.setPosition(l.room.width / 2, storeButtonY + height / 2).setAlignment('center').write('store')
 
 			if (currentScreen == 'invest')
 			{
@@ -88,7 +88,7 @@ var Menu = function()
 				typewriter.setColor(color)
 			}
 
-			typewriter.setPosition(l.room.width / 2, investButtonY + height / 2 - size / 1.5).setAlignment('center').write('invest')
+			typewriter.setPosition(l.room.width / 2, investButtonY + height / 2).setAlignment('center').write('invest')
 		}
 	}
 }
