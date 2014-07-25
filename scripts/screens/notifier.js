@@ -16,6 +16,8 @@ var Notifier = function()
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(color).setFont('bebas_neueregular').setBaseline('middle')
 
+	var timer // Used for clearing the timer when a new notification is added to an existing one
+
 	this.notify = function(message)
 	{
 		if (!notification)
@@ -28,10 +30,21 @@ var Notifier = function()
 			size -= 5
 		}
 
-		setTimeout(function()
+		if (!timer)
 		{
-			notification = undefined
-		}, life)
+			timer = setTimeout(function()
+			{
+				notification = undefined
+			}, life)
+		}
+		else
+		{
+			clearTimeout(timer)
+			timer = setTimeout(function()
+			{
+				notification = undefined
+			}, life)
+		}
 	}
 
 	this.watch = function() // Watch for promotions and raises

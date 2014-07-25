@@ -6,6 +6,7 @@ var menu = new Menu()
 var numpad = new Numpad()
 	numpad.generateProblem()
 var inventory = new Inventory()
+var wallstreet = new Wallstreet()
 
 var main = function()
 {

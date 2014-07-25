@@ -194,3 +194,34 @@ var inventoryItems = [
 		purchased: false
 	}
 ]
+
+var investmentOptions = [
+	{
+		name: 'lottery ticket',
+		interest: 100000000,
+		risk: 99.999,
+		minimum: 5,
+		wait: 0
+	},
+	{
+		name: 'small business investment',
+		interest: 50,
+		risk: 10,
+		minimum: 10000,
+		wait: 1 // in hours
+	},
+	{
+		name: 'medium business investment',
+		interest: 150,
+		risk: 5,
+		minimum: 50000,
+		wait: 12 // in hours
+	},
+	{
+		name: 'large business investment',
+		interest: 250,
+		risk: 1,
+		minimum: 150000,
+		wait: 24 // in hours
+	}
+]
