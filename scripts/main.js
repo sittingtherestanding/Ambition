@@ -24,6 +24,10 @@ var main = function()
 	{
 		inventory.draw()
 	}
+	else if (currentScreen == 'invest')
+	{
+		wallstreet.draw()
+	}
 
 	notifier.draw()
 

@@ -505,6 +505,8 @@ var Numpad = function()
 
 	this.draw = function()
 	{
+		game.color = aqua
+
 		if (!mouse.leftClick)
 		{
 			canClick = true

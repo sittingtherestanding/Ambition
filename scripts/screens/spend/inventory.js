@@ -6,7 +6,7 @@ var Inventory = function()
 	var header = new Header()
 
 	var top = header.height + padding * 3
-	var itemSize = padding * 3
+	var itemSize = padding * 5
 
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular').setBaseline('top')
@@ -15,8 +15,11 @@ var Inventory = function()
 
 	this.drawButton = function(buttonID)
 	{
-		typewriter.setAlignment('left').setPosition(padding, top + itemSize * (buttonID)).write(inventoryItems[buttonID].name)
-		typewriter.setAlignment('right').setPosition(l.room.width - padding, top + itemSize * (buttonID)).write('$' + inventoryItems[buttonID].price + ' for ' + inventoryItems[buttonID].points + ' SSP')
+		typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (buttonID)).write(inventoryItems[buttonID].name)
+		typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write('purchased 0 times')
+
+		typewriter.setAlignment('right').setColor(lime).setPosition(l.room.width - padding, top + itemSize * (buttonID)).write('$' + inventoryItems[buttonID].price)
+		typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(inventoryItems[buttonID].points + ' SSP')
 	}
 
 	this.watch = function()
@@ -47,6 +50,8 @@ var Inventory = function()
 
 	this.draw = function()
 	{
+		game.color = maroon
+
 		if (!mouse.leftClick)
 		{
 			canClick = true
