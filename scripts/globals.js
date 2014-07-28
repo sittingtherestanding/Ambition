@@ -25,7 +25,7 @@ var game = new Lorina()
 var currentScreen = 'earn'
 var displayMenu = false
 
-var money = 5000000 // A straight int that keeps track of money
+var money = 0 // A straight int that keeps track of money
 var social = 0 // A straight int keeping track of your SSP
 
 var jobLevel = 0 // The 'jobs' index marking your current job level
