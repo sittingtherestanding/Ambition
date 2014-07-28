@@ -12,6 +12,8 @@ var Notifier = function()
 
 	var notification
 
+	var canEarnInterest = true
+
 	var pencil = new Pencil()
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(color).setFont('bebas_neueregular').setBaseline('middle')
@@ -49,6 +51,19 @@ var Notifier = function()
 
 	this.watch = function() // Watch for promotions and raises
 	{
+		if (solved > 0 && solved % 10 == 0 && canEarnInterest)
+		{
+			canEarnInterest = false
+
+			money += Math.round(money / 100)
+
+			this.notify('interest')
+		}
+		else if (solved % 10 !== 0)
+		{
+			canEarnInterest = true
+		}
+
 		if (social >= jobs[jobLevel + 1].points[0] && promotionLevel == 2)
 		{
 			jobLevel++
