@@ -51,6 +51,13 @@ var Notifier = function()
 
 	this.watch = function() // Watch for promotions and raises
 	{
+		if (investmentOptions[0].returned) // Check if we won the lottery
+		{
+			investmentOptions[0].returned = false
+
+			this.notify('won lottery')
+		}
+
 		if (solved > 0 && solved % 10 == 0 && canEarnInterest)
 		{
 			canEarnInterest = false

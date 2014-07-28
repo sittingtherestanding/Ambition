@@ -25,7 +25,7 @@ var game = new Lorina()
 var currentScreen = 'earn'
 var displayMenu = false
 
-var money = 0 // A straight int that keeps track of money
+var money = 5000000 // A straight int that keeps track of money
 var social = 0 // A straight int keeping track of your SSP
 
 var jobLevel = 0 // The 'jobs' index marking your current job level
@@ -200,32 +200,36 @@ var investmentOptions = [
 		name: 'lottery ticket',
 		interest: 100000000,
 		risk: 99.9,
-		minimum: 5,
+		price: 5,
 		wait: 0,
-		bought: 0
+		bought: 0,
+		returned: false
 	},
 	{
 		name: 'small business investment',
 		interest: 50,
 		risk: 10,
-		minimum: 10000,
+		price: 10000,
 		wait: 1, // in hours
-		bought: 0
+		bought: 0,
+		returned: false
 	},
 	{
 		name: 'medium business investment',
 		interest: 150,
 		risk: 5,
-		minimum: 50000,
+		price: 50000,
 		wait: 12, // in hours
-		bought: 0
+		bought: 0,
+		returned: false
 	},
 	{
 		name: 'large business investment',
 		interest: 250,
 		risk: 1,
-		minimum: 150000,
+		price: 150000,
 		wait: 24, // in hours
-		bought: 0
+		bought: 0,
+		returned: false
 	}
 ]
