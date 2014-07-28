@@ -48,7 +48,7 @@ var Header = function()
 
 		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + yText).setAlignment('center')
 
-		if (currentScreen == 'earn' || currentScreen == 'invest')
+		if (currentScreen == 'earn')
 		{
 			if (solved == 1)
 			{
@@ -73,6 +73,10 @@ var Header = function()
 			}
 
 			typewriter.write(toPromotion + ' SSP to next promotion')
+		}
+		else if (currentScreen == 'invest')
+		{
+			typewriter.write('no current investments')
 		}
 	}
 }

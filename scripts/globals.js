@@ -25,7 +25,7 @@ var game = new Lorina()
 var currentScreen = 'earn'
 var displayMenu = false
 
-var money = 5000 // A straight int that keeps track of money
+var money = 0 // A straight int that keeps track of money
 var social = 0 // A straight int keeping track of your SSP
 
 var jobLevel = 0 // The 'jobs' index marking your current job level
@@ -125,73 +125,73 @@ var inventoryItems = [
 		name: 'hair cut',
 		price: 20,
 		points: 5,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'nice clothes',
 		price: 50,
 		points: 12,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'gym membership',
 		price: 100,
 		points: 25,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'cologne/perfume',
 		price: 150,
 		points: 50,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'slick shoes',
 		price: 200,
 		points: 100,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'fancy business cards',
 		price: 350,
 		points: 250,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'travel experience',
 		price: 1000,
 		points: 500,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'new car',
 		price: 10000,
 		points: 1000,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'plastic surgery',
 		price: 25000,
 		points: 2500,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'managerial courses',
 		price: 35000,
 		points: 5000,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'real estate',
 		price: 75000,
 		points: 10000,
-		purchased: false
+		bought: 0
 	},
 	{
 		name: 'airplane',
 		price: 150000,
 		points: 100000,
-		purchased: false
+		bought: 0
 	}
 ]
 
@@ -199,29 +199,33 @@ var investmentOptions = [
 	{
 		name: 'lottery ticket',
 		interest: 100000000,
-		risk: 99.999,
+		risk: 99.9,
 		minimum: 5,
-		wait: 0
+		wait: 0,
+		bought: 0
 	},
 	{
 		name: 'small business investment',
 		interest: 50,
 		risk: 10,
 		minimum: 10000,
-		wait: 1 // in hours
+		wait: 1, // in hours
+		bought: 0
 	},
 	{
 		name: 'medium business investment',
 		interest: 150,
 		risk: 5,
 		minimum: 50000,
-		wait: 12 // in hours
+		wait: 12, // in hours
+		bought: 0
 	},
 	{
 		name: 'large business investment',
 		interest: 250,
 		risk: 1,
 		minimum: 150000,
-		wait: 24 // in hours
+		wait: 24, // in hours
+		bought: 0
 	}
 ]

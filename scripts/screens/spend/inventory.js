@@ -16,7 +16,15 @@ var Inventory = function()
 	this.drawButton = function(buttonID)
 	{
 		typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (buttonID)).write(inventoryItems[buttonID].name)
-		typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write('purchased 0 times')
+
+		if (inventoryItems[buttonID].bought != 1)
+		{
+			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write('bought ' + inventoryItems[buttonID].bought + ' times')
+		}
+		else
+		{
+			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write('bought ' + inventoryItems[buttonID].bought + ' time')
+		}
 
 		typewriter.setAlignment('right').setColor(lime).setPosition(l.room.width - padding, top + itemSize * (buttonID)).write('$' + inventoryItems[buttonID].price)
 		typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(inventoryItems[buttonID].points + ' SSP')
@@ -44,7 +52,7 @@ var Inventory = function()
 				money -= inventoryItems[index].price
 				social += inventoryItems[index].points
 
-				inventoryItems[index].purchased = true
+				inventoryItems[index].bought++
 			}
 		}
 
