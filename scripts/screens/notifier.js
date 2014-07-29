@@ -65,7 +65,13 @@ var Notifier = function()
 			{
 				investmentOptions[i + 1].returned = false
 
-				this.notify('investment')
+				this.notify('good investment')
+			}
+			else if (investmentOptions[i + 1].failed)
+			{
+				investmentOptions[i + 1].failed = false
+
+				this.notify('bad investment')
 			}
 		}
 

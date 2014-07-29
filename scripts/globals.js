@@ -201,11 +201,12 @@ var investmentOptions = [
 	{
 		name: 'lottery ticket',
 		interest: 100000000,
-		risk: 99.9,
+		risk: 999,
 		price: 5,
 		wait: 0,
 		bought: 0,
-		returned: false
+		returned: false,
+		failed: false
 	},
 	{
 		name: 'small business investment',
@@ -214,7 +215,8 @@ var investmentOptions = [
 		price: 10000,
 		wait: 1, // in hours
 		bought: 0,
-		returned: false
+		returned: false,
+		failed: false
 	},
 	{
 		name: 'medium business investment',
@@ -223,7 +225,8 @@ var investmentOptions = [
 		price: 50000,
 		wait: 12, // in hours
 		bought: 0,
-		returned: false
+		returned: false,
+		failed: false
 	},
 	{
 		name: 'large business investment',
@@ -232,6 +235,7 @@ var investmentOptions = [
 		price: 150000,
 		wait: 24, // in hours
 		bought: 0,
-		returned: false
+		returned: false,
+		failed: false
 	}
 ]

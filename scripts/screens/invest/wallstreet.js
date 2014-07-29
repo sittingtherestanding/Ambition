@@ -78,7 +78,7 @@ var Wallstreet = function()
 
 				investmentOptions[index].bought++
 
-				if (Math.round(tool.random(0, 999)) == 0)
+				if (Math.round(tool.random(0, 1000)) == 0)
 				{
 					money += investmentOptions[index].price * investmentOptions[index].interest
 
@@ -89,8 +89,10 @@ var Wallstreet = function()
 
 		this.invest = function(index)
 		{
-			if (money >= investmentOptions[index].price)
+			if (money >= investmentOptions[index].price && !this.timers[index].time)
 			{
+				investmentOptions[index].bought++
+
 				this.timers[index].start()
 
 				money -= investmentOptions[index].price
@@ -107,20 +109,24 @@ var Wallstreet = function()
 
 					if (minutesLeft == 1)
 					{
-						investmentHeader = minutesLeft + ' minute until return'
+						investmentHeader = minutesLeft + ' minute until first return'
 					}
 					else if (minutesLeft < 60)
 					{
-						investmentHeader = minutesLeft + ' minutes until return'
+						investmentHeader = minutesLeft + ' minutes until first return'
 					}
 					else if (hoursLeft == 1)
 					{
-						investmentHeader = hoursLeft + ' hour until return'
+						investmentHeader = hoursLeft + ' hour until first return'
 					}
 					else
 					{
-						investmentHeader = hoursLeft + ' hours until return'
+						investmentHeader = hoursLeft + ' hours until first return'
 					}
+				}
+				else
+				{
+					investmentHeader = 'no current investments'
 				}
 
 				var i = investmentOptions.length - 1
@@ -129,11 +135,18 @@ var Wallstreet = function()
 					// Check for finished timers
 					if (this.timers[i + 1].check() >= investmentOptions[i + 1].wait * 1000 * 60 * 60)
 					{
-						money += Math.round(investmentOptions[i + 1].price / 100 * investmentOptions[i + 1].interest)
+						if (Math.round(tool.random(0, 100 / investmentOptions[i + 1].risk)) !== 0)
+						{
+							money += investmentOptions[i + 1].price + Math.round(investmentOptions[i + 1].price / 100 * investmentOptions[i + 1].interest)
 
-						investmentOptions[i + 1].returned = true
+							investmentOptions[i + 1].returned = true
 
-						this.timers[i + 1].clear()
+							this.timers[i + 1].clear()
+						}
+						else
+						{
+							investmentOptions[i + 1].failed = true
+						}
 					}
 				}
 			}
