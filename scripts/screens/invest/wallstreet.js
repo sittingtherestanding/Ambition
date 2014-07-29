@@ -1,5 +1,7 @@
 var Wallstreet = function()
 {
+	var cupboard = new Cupboard()
+
 	var size = 20
 	var padding = 15
 
@@ -8,7 +10,14 @@ var Wallstreet = function()
 	var top = header.height + padding * 3
 	var itemSize = padding * 5
 
-	this.timers = new Array()
+	if (cupboard.get('timers')) // Load if we have saved timers
+	{
+		this.timers = cupboard.get('timers')
+	}
+	else
+	{
+		this.timers = new Array()
+	}
 
 	var i = investmentOptions.length
 	while (i--)
@@ -94,6 +103,8 @@ var Wallstreet = function()
 				investmentOptions[index].bought++
 
 				this.timers[index].start()
+
+				cupboard.set('timers', this.timers) // Save to localStorage
 
 				money -= investmentOptions[index].price
 			}
