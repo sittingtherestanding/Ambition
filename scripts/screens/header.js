@@ -76,7 +76,7 @@ var Header = function()
 		}
 		else if (currentScreen == 'invest')
 		{
-			typewriter.write('no current investments')
+			typewriter.write(investmentHeader)
 		}
 	}
 }

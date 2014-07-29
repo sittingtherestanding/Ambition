@@ -89,14 +89,44 @@ var Wallstreet = function()
 
 		this.invest = function(index)
 		{
-			this.timers[index].start()
+			if (money >= investmentOptions[index].price)
+			{
+				this.timers[index].start()
+
+				money -= investmentOptions[index].price
+			}
 		}
 
 			this.checkInvestments = function()
 			{
+				// Check for running timers
+				if (this.timers[1].time)
+				{
+					var minutesLeft = (investmentOptions[1].wait * 60) - Math.round(this.timers[1].check() / 1000 / 60)
+					var hoursLeft = Math.round(minutesLeft / 60 * 10) / 10
+
+					if (minutesLeft == 1)
+					{
+						investmentHeader = minutesLeft + ' minute until return'
+					}
+					else if (minutesLeft < 60)
+					{
+						investmentHeader = minutesLeft + ' minutes until return'
+					}
+					else if (hoursLeft == 1)
+					{
+						investmentHeader = hoursLeft + ' hour until return'
+					}
+					else
+					{
+						investmentHeader = hoursLeft + ' hours until return'
+					}
+				}
+
 				var i = investmentOptions.length - 1
 				while (i--)
 				{
+					// Check for finished timers
 					if (this.timers[i + 1].check() >= investmentOptions[i + 1].wait * 1000 * 60 * 60)
 					{
 						money += Math.round(investmentOptions[i + 1].price / 100 * investmentOptions[i + 1].interest)

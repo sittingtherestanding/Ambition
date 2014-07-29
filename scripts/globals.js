@@ -25,7 +25,7 @@ var game = new Lorina()
 var currentScreen = 'earn'
 var displayMenu = false
 
-var money = 5000 // A straight int that keeps track of money
+var money = 50000000 // A straight int that keeps track of money
 var social = 0 // A straight int keeping track of your SSP
 
 var jobLevel = 0 // The 'jobs' index marking your current job level
@@ -36,6 +36,8 @@ var problemType
 var numbers = new Array() // The list of ints used to display math problems
 var userInput = '?'
 var solved = 0
+
+var investmentHeader = 'no current investments'
 
 var jobs = [
 	{
@@ -210,7 +212,7 @@ var investmentOptions = [
 		interest: 50,
 		risk: 10,
 		price: 10000,
-		wait: 1 / 60, // in hours
+		wait: 1, // in hours
 		bought: 0,
 		returned: false
 	},
