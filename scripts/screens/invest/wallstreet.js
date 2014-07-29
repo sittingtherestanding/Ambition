@@ -8,10 +8,16 @@ var Wallstreet = function()
 	var top = header.height + padding * 3
 	var itemSize = padding * 5
 
+	this.timers = new Array()
+
+	var i = investmentOptions.length
+	while (i--)
+	{
+		this.timers[i] = new Timer()
+	}
+
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular').setBaseline('top')
-	var timer = new Timer()
-		timer.log()
 	var tool = new Tool()
 
 	var canClick = false
@@ -41,7 +47,7 @@ var Wallstreet = function()
 		}
 		else
 		{
- 			typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% risk immediately')
+ 			typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% immediate risk')
 		}
 	}
 
@@ -56,6 +62,10 @@ var Wallstreet = function()
 			if (index == 0) // Make it so we can't click on the header to buy things
 			{
 				this.lottery(index)
+			}
+			else if (index == 1)
+			{
+				this.invest(index)
 			}
 		}
 	}
@@ -76,6 +86,27 @@ var Wallstreet = function()
 				}
 			}
 		}
+
+		this.invest = function(index)
+		{
+			this.timers[index].start()
+		}
+
+			this.checkInvestments = function()
+			{
+				var i = investmentOptions.length - 1
+				while (i--)
+				{
+					if (this.timers[i + 1].check() >= investmentOptions[i + 1].wait * 1000 * 60 * 60)
+					{
+						money += Math.round(investmentOptions[i + 1].price / 100 * investmentOptions[i + 1].interest)
+
+						investmentOptions[i + 1].returned = true
+
+						this.timers[i + 1].clear()
+					}
+				}
+			}
 
 	this.draw = function()
 	{

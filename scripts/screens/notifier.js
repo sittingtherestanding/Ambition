@@ -58,6 +58,17 @@ var Notifier = function()
 			this.notify('won lottery')
 		}
 
+		var i = investmentOptions.length - 1
+		while (i--)
+		{
+			if (investmentOptions[i + 1].returned) // Check if we got a return on our investment
+			{
+				investmentOptions[i + 1].returned = false
+
+				this.notify('investment')
+			}
+		}
+
 		if (solved > 0 && solved % 10 == 0 && canEarnInterest)
 		{
 			canEarnInterest = false

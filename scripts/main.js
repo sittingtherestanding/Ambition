@@ -29,6 +29,8 @@ var main = function()
 		wallstreet.draw()
 	}
 
+	wallstreet.checkInvestments()
+
 	notifier.draw()
 
 	menu.draw()
