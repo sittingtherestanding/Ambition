@@ -93,6 +93,8 @@ var Wallstreet = function()
 
 					investmentOptions[index].returned = true
 				}
+
+				saveStorage()
 			}
 		}
 
@@ -107,6 +109,8 @@ var Wallstreet = function()
 				cupboard.set('timers', this.timers) // Save to localStorage
 
 				money -= investmentOptions[index].price
+
+				saveStorage()
 			}
 		}
 
@@ -158,6 +162,8 @@ var Wallstreet = function()
 						{
 							investmentOptions[i + 1].failed = true
 						}
+
+						saveStorage()
 					}
 				}
 			}

@@ -16,30 +16,18 @@ var gray = '#AAAAAA'
 var silver = '#DDDDDD'
 var white = '#FFFFFF'
 
+// Save data loaded at bottom of file
+
 var game = new Lorina()
 	game.setTitle('Ambition')
 		.setColor(aqua)
 		.setRoomSize(320, 568)
 		.setDomSize(320, 568)
 
+var cupboard = new Cupboard()
+
 var currentScreen = 'earn'
 var displayMenu = false
-
-if (cupboard.get('money')) // Load stuff
-{
-	var money = cupboard.get('money')
-}
-else
-{
-	var money = 0
-}
-
-// var money = 0 // A straight int that keeps track of money
-
-var social = 0 // A straight int keeping track of your SSP
-
-var jobLevel = 0 // The 'jobs' index marking your current job level
-var promotionLevel = 0 // The 'jobs' index marking your current promotion level
 
 var problemType
 
@@ -249,3 +237,5 @@ var investmentOptions = [
 		failed: false
 	}
 ]
+
+loadStorage()

@@ -55,6 +55,8 @@ var Notifier = function()
 		{
 			investmentOptions[0].returned = false
 
+			saveStorage()
+
 			this.notify('won lottery')
 		}
 
@@ -65,11 +67,15 @@ var Notifier = function()
 			{
 				investmentOptions[i + 1].returned = false
 
+				saveStorage()
+
 				this.notify('good investment')
 			}
 			else if (investmentOptions[i + 1].failed)
 			{
 				investmentOptions[i + 1].failed = false
+
+				saveStorage()
 
 				this.notify('bad investment')
 			}
@@ -80,6 +86,8 @@ var Notifier = function()
 			canEarnInterest = false
 
 			money += Math.round(money / 100)
+
+			saveStorage()
 
 			this.notify('interest')
 		}
@@ -93,6 +101,8 @@ var Notifier = function()
 			jobLevel++
 			promotionLevel = 0
 
+			saveStorage()
+
 			numpad.generateProblem()
 
 			this.notify('promotion')
@@ -100,6 +110,8 @@ var Notifier = function()
 		else if (social >= jobs[jobLevel].points[promotionLevel + 1])
 		{
 			promotionLevel++
+
+			saveStorage()
 
 			this.notify('raise')
 		}

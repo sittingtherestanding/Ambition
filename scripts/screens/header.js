@@ -72,7 +72,7 @@ var Header = function()
 				toPromotion = jobs[jobLevel].points[promotionLevel + 1]
 			}
 
-			typewriter.write(toPromotion + ' SSP to next promotion')
+			typewriter.write(toPromotion - social + ' SSP to next promotion')
 		}
 		else if (currentScreen == 'invest')
 		{

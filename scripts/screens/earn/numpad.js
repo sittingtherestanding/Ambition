@@ -360,6 +360,8 @@ var Numpad = function()
 				solved++
 				money += jobs[jobLevel].salary[promotionLevel]
 
+				saveStorage()
+
 				self.generateProblem()
 
 				game.setColor(aqua)

@@ -53,6 +53,8 @@ var Inventory = function()
 				social += inventoryItems[index].points
 
 				inventoryItems[index].bought++
+
+				saveStorage()
 			}
 		}
 
