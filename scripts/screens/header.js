@@ -62,17 +62,29 @@ var Header = function()
 		else if (currentScreen == 'spend')
 		{
 			var toPromotion
+			var raiseOrPromotion
 
 			if (promotionLevel == 2)
 			{
 				toPromotion = jobs[jobLevel + 1].points[0]
+
+				raiseOrPromotion = 'promotion'
 			}
 			else
 			{
 				toPromotion = jobs[jobLevel].points[promotionLevel + 1]
+
+				raiseOrPromotion = 'raise'
 			}
 
-			typewriter.write(toPromotion - social + ' SSP to next promotion')
+			if (raiseOrPromotion == 'promotion')
+			{
+				typewriter.write(toPromotion - social + ' SSP to next promotion')
+			}
+			else if (raiseOrPromotion == 'raise')
+			{
+				typewriter.write(toPromotion - social + ' SSP to next raise')
+			}
 		}
 		else if (currentScreen == 'invest')
 		{

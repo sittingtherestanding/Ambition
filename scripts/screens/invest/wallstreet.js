@@ -89,14 +89,19 @@ var Wallstreet = function()
 
 				if (Math.round(tool.random(0, 1000)) == 0)
 				{
-					money += investmentOptions[index].price * investmentOptions[index].interest
-
-					investmentOptions[index].returned = true
+					this.winLottery()
 				}
 
 				saveStorage()
 			}
 		}
+
+			this.winLottery = function(index)
+			{
+				money += investmentOptions[index].price * investmentOptions[index].interest
+
+				investmentOptions[index].returned = true
+			}
 
 		this.invest = function(index)
 		{
@@ -124,19 +129,19 @@ var Wallstreet = function()
 
 					if (minutesLeft == 1)
 					{
-						investmentHeader = minutesLeft + ' minute until first return'
+						investmentHeader = minutesLeft + ' minute until next return'
 					}
 					else if (minutesLeft < 60)
 					{
-						investmentHeader = minutesLeft + ' minutes until first return'
+						investmentHeader = minutesLeft + ' minutes until next return'
 					}
 					else if (hoursLeft == 1)
 					{
-						investmentHeader = hoursLeft + ' hour until first return'
+						investmentHeader = hoursLeft + ' hour until next return'
 					}
 					else
 					{
-						investmentHeader = hoursLeft + ' hours until first return'
+						investmentHeader = hoursLeft + ' hours until next return'
 					}
 				}
 				else

@@ -7,6 +7,8 @@ var social = 0 // A straight int keeping track of your SSP
 var jobLevel = 0 // The 'jobs' index marking your current job level
 var promotionLevel = 0 // The 'jobs' index marking your current promotion level
 
+var solved = 0
+
 var loadStorage = function()
 {
 	if (cupboard.get('money'))
@@ -38,6 +40,11 @@ var loadStorage = function()
 	{
 		investmentOptions = cupboard.get('investmentOptions')
 	}
+
+	if (cupboard.get('solved'))
+	{
+		solved = cupboard.get('solved')
+	}
 }
 
 var saveStorage = function()
@@ -49,4 +56,6 @@ var saveStorage = function()
 
 	cupboard.set('inventoryItems', inventoryItems)
 	cupboard.set('investmentOptions', investmentOptions)
+
+	cupboard.set('solved', solved)
 }

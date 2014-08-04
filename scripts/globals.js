@@ -33,7 +33,6 @@ var problemType
 
 var numbers = new Array() // The list of ints used to display math problems
 var userInput = '?'
-var solved = 0
 
 var investmentHeader = 'no current investments'
 
