@@ -21,6 +21,8 @@ var game = new Lorina()
 		.setColor(aqua)
 		.makeFullscreen()
 
+console.log(l.retina)
+
 var pusher = new Pusher()
 	pusher.register().notify('This is a test')
 

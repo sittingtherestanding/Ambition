@@ -17,7 +17,7 @@ var Notifier = function()
 
 	var pencil = new Pencil()
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setColor(color).setFont('bebas_neueregular').setBaseline('middle')
+		typewriter.setSize(l.retina * size).setColor(color).setFont('bebas').setBaseline('middle')
 
 	var timer // Used for clearing the timer when a new notification is added to an existing one
 
@@ -127,8 +127,8 @@ var Notifier = function()
 	{
 		if (notification)
 		{
-			pencil.setPosition(0, l.room.height - height).setSize(l.room.width, height).setColor(backgroundColor).setOpacity(opacity).fillRectangle()
-			typewriter.setPosition(l.room.width / 2, l.room.height - height / 2).setAlignment('center').setColor(color).setSize(size).write(notification)
+			pencil.setPosition(0, l.room.height - height).setSize(l.retina * l.room.width, height).setColor(backgroundColor).setOpacity(opacity).fillRectangle()
+			typewriter.setPosition(l.room.width / 2, l.room.height - height / 2).setAlignment('center').setColor(color).setSize(l.retina * size).write(notification)
 		}
 	}
 }

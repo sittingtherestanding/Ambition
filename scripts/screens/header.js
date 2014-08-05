@@ -1,12 +1,12 @@
 var Header = function()
 {
-	var padding = 10
-	var size = 18
+	var padding = 10 * l.retina
+	var size = 18 * l.retina
 	this.height = padding * 3
 	var yText = this.height / 2
 
 	var typewriter = new Typewriter()
-		typewriter.setFont('bebas_neueregular').setBaseline('middle')
+		typewriter.setFont('bebas').setBaseline('middle')
 	var pencil = new Pencil()
 
 	var canClick = true

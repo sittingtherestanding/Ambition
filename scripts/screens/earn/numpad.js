@@ -5,7 +5,7 @@ var Numpad = function()
 	var pencil = new Pencil()
 	var tool = new Tool()
 	var typewriter = new Typewriter()
-		typewriter.setSize(50).setAlignment('center').setColor(black).setFont('bebas_neueregular').setBaseline('middle')
+		typewriter.setSize(l.retina * 50).setAlignment('center').setColor(black).setFont('bebas').setBaseline('middle')
 	var header = new Header()
 
 	var buttonModifier = 3.1 // Larger numbers equal smaller buttons (3 is minimum)
@@ -566,7 +566,7 @@ var Numpad = function()
 			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' / ' + numbers[1] + ' = ' + userInput)
 		}
 
-		pencil.setPosition(0, this.top).setColor(black).setSize(l.room.width, l.room.height - this.top).fillRectangle()
+		pencil.setPosition(0, this.top).setColor(black).setSize(l.retina * l.room.width, l.room.height - this.top).fillRectangle()
 
 		numberOne.draw()
 		numberTwo.draw()

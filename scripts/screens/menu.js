@@ -15,7 +15,7 @@ var Menu = function()
 
 	var pencil = new Pencil()
 	var typewriter = new Typewriter()
-		typewriter.setFont('bebas_neueregular').setSize(size).setBaseline('middle')
+		typewriter.setFont('bebas').setSize(l.retina * size).setBaseline('middle')
 
 	this.watch = function()
 	{
@@ -51,11 +51,11 @@ var Menu = function()
 
 		if (displayMenu)
 		{
-			pencil.setPosition(0, header.height).setSize(l.room.width, padding * 4 + height * 3).setColor(backgroundColor).fillRectangle() // Menu background
+			pencil.setPosition(0, header.height).setSize(l.retina * l.room.width, padding * 4 + height * 3).setColor(backgroundColor).fillRectangle() // Menu background
 
-			pencil.setPosition(padding, solveButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Earn button background
-			pencil.setPosition(padding, storeButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Spend button background
-			pencil.setPosition(padding, investButtonY).setSize(l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Invest button background
+			pencil.setPosition(padding, solveButtonY).setSize(l.retina * l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Earn button background
+			pencil.setPosition(padding, storeButtonY).setSize(l.retina * l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Spend button background
+			pencil.setPosition(padding, investButtonY).setSize(l.retina * l.room.width - padding * 2, height).setColor(buttonColor).fillRectangle() // Invest button background
 		
 			if (currentScreen == 'earn')
 			{

@@ -11,7 +11,7 @@ var Wallstreet = function()
 	var itemSize = padding * 5
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular').setBaseline('top')
+		typewriter.setSize(l.retina * size).setColor(black).setFont('bebas').setBaseline('top')
 	var tool = new Tool()
 
 	var canClick = false
