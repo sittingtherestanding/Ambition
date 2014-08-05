@@ -23,7 +23,8 @@ var game = new Lorina()
 		.appendCanvas()
 
 var pusher = new Pusher()
-	pusher.register().notify('This is a test')
+	pusher.register()
+		  .notify('This is a test', 5)
 
 var currentScreen = 'earn'
 var displayMenu = false
