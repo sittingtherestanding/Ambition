@@ -11,7 +11,7 @@ var Inventory = function()
 	var typewriter = new Typewriter()
 		typewriter.setSize(l.retina * size).setColor(black).setFont('bebas').setBaseline('top')
 
-	var canClick = false
+	var canTouch = false
 
 	this.drawButton = function(buttonID)
 	{
@@ -32,11 +32,11 @@ var Inventory = function()
 
 	this.watch = function()
 	{
-		if (mouse.leftClick && canClick)
+		if (finger.touching && canTouch)
 		{
-			canClick = false
+			canTouch = false
 
-			var index = Math.floor((mouse.y - top) / itemSize)
+			var index = Math.floor((finger.y - top) / itemSize)
 
 			if (index >= 0) // Make it so we can't click on the header to buy things
 			{
@@ -62,9 +62,9 @@ var Inventory = function()
 	{
 		game.color = maroon
 
-		if (!mouse.leftClick)
+		if (!finger.touching)
 		{
-			canClick = true
+			canTouch = true
 		}
 
 		this.watch()

@@ -9,15 +9,15 @@ var Header = function()
 		typewriter.setFont('bebas').setBaseline('middle')
 	var pencil = new Pencil()
 
-	var canClick = true
+	var canTouch = true
 
 	this.watch = function()
 	{
-		if (canClick && mouse.leftClick)
+		if (canTouch && finger.touching)
 		{
-			canClick = false
+			canTouch = false
 
-			if (mouse.y < this.height)
+			if (finger.y < this.height)
 			{
 				if (!displayMenu)
 				{
@@ -29,9 +29,9 @@ var Header = function()
 				}
 			}
 		}
-		else if (!mouse.leftClick)
+		else if (!finger.touching)
 		{
-			canClick = true
+			canTouch = true
 		}
 	}
 

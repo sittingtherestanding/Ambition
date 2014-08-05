@@ -1,4 +1,4 @@
-var mouse = new Mouse()
+var finger = new Finger()
 
 var notifier = new Notifier()
 var header = new Header()

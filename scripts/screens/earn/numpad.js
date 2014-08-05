@@ -92,7 +92,7 @@ var Numpad = function()
 					.setStretch(buttonSize, buttonSize, true, true)
 					.setPosition(columnThree, rowFour)
 
-	var canClick = true
+	var canTouch = true
 
 	this.generateProblem = function()
 	{
@@ -387,98 +387,101 @@ var Numpad = function()
 	this.watch = function()
 	{
 		// Check button presses
-		if (canClick && mouse.leftClick && !displayMenu)
+		if (!displayMenu && canTouch)
 		{
-			canClick = false
-
-			if (mouse.checkLeftClicked(numberOne))
+			if (finger.touching)
 			{
-				this.movePressedButton(numberOne)
+				canTouch = false
 
-				this.addInput('1')
-			}
-
-			if (mouse.checkLeftClicked(numberTwo))
-			{
-				this.movePressedButton(numberTwo)
-
-				this.addInput('2')
-			}
-
-			if (mouse.checkLeftClicked(numberThree))
-			{
-				this.movePressedButton(numberThree)
-
-				this.addInput('3')
-			}
-
-			if (mouse.checkLeftClicked(numberFour))
-			{
-				this.movePressedButton(numberFour)
-
-				this.addInput('4')
-			}
-
-			if (mouse.checkLeftClicked(numberFive))
-			{
-				this.movePressedButton(numberFive)
-
-				this.addInput('5')
-			}
-
-			if (mouse.checkLeftClicked(numberSix))
-			{
-				this.movePressedButton(numberSix)
-
-				this.addInput('6')
-			}
-
-			if (mouse.checkLeftClicked(numberSeven))
-			{
-				this.movePressedButton(numberSeven)
-
-				this.addInput('7')
-			}
-
-			if (mouse.checkLeftClicked(numberEight))
-			{
-				this.movePressedButton(numberEight)
-
-				this.addInput('8')
-			}
-
-			if (mouse.checkLeftClicked(numberNine))
-			{
-				this.movePressedButton(numberNine)
-
-				this.addInput('9')
-			}
-
-			if (mouse.checkLeftClicked(numberZero))
-			{
-				this.movePressedButton(numberZero)
-
-				this.addInput('0')
-			}
-
-			if (mouse.checkLeftClicked(buttonClear))
-			{
-				this.movePressedButton(buttonClear)
-
-				userInput = '?'
-			}
-
-			if (mouse.checkLeftClicked(buttonDelete))
-			{
-				this.movePressedButton(buttonDelete)
-
-				if (userInput.length > 1)
+				if (finger.checkTouched(numberOne))
 				{
-					userInput = userInput.substring(0, userInput.length - 1)
+					this.movePressedButton(numberOne)
+
+					this.addInput('1')
 				}
-				else
+
+				if (finger.checkTouched(numberTwo))
 				{
+					this.movePressedButton(numberTwo)
+
+					this.addInput('2')
+				}
+
+				if (finger.checkTouched(numberThree))
+				{
+					this.movePressedButton(numberThree)
+
+					this.addInput('3')
+				}
+
+				if (finger.checkTouched(numberFour))
+				{
+					this.movePressedButton(numberFour)
+
+					this.addInput('4')
+				}
+
+				if (finger.checkTouched(numberFive))
+				{
+					this.movePressedButton(numberFive)
+
+					this.addInput('5')
+				}
+
+				if (finger.checkTouched(numberSix))
+				{
+					this.movePressedButton(numberSix)
+
+					this.addInput('6')
+				}
+
+				if (finger.checkTouched(numberSeven))
+				{
+					this.movePressedButton(numberSeven)
+
+					this.addInput('7')
+				}
+
+				if (finger.checkTouched(numberEight))
+				{
+					this.movePressedButton(numberEight)
+
+					this.addInput('8')
+				}
+
+				if (finger.checkTouched(numberNine))
+				{
+					this.movePressedButton(numberNine)
+
+					this.addInput('9')
+				}
+
+				if (finger.checkTouched(numberZero))
+				{
+					this.movePressedButton(numberZero)
+
+					this.addInput('0')
+				}
+
+				if (finger.checkTouched(buttonClear))
+				{
+					this.movePressedButton(buttonClear)
+
 					userInput = '?'
+				}
+
+				if (finger.checkTouched(buttonDelete))
+				{
+					this.movePressedButton(buttonDelete)
+
+					if (userInput.length > 1)
+					{
+						userInput = userInput.substring(0, userInput.length - 1)
+					}
+					else
+					{
+						userInput = '?'
+					}
 				}
 			}
 		}
@@ -509,9 +512,9 @@ var Numpad = function()
 	{
 		game.color = aqua
 
-		if (!mouse.leftClick)
+		if (!finger.touching)
 		{
-			canClick = true
+			canTouch = true
 			pressedButton.opacity = 0
 		}
 

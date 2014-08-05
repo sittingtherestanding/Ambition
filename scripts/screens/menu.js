@@ -21,21 +21,21 @@ var Menu = function()
 	{
 		if (displayMenu)
 		{
-			if (mouse.leftClick)
+			if (finger.touching)
 			{
-				if (mouse.x > padding && mouse.x < l.room.width - padding)
+				if (finger.x > padding && finger.x < l.room.width - padding)
 				{
-					if (mouse.y > solveButtonY && mouse.y < solveButtonY + height)
+					if (finger.y > solveButtonY && finger.y < solveButtonY + height)
 					{
 						currentScreen = 'earn'
 						displayMenu = false
 					}
-					else if (mouse.y > storeButtonY && mouse.y < storeButtonY + height)
+					else if (finger.y > storeButtonY && finger.y < storeButtonY + height)
 					{
 						currentScreen = 'spend'
 						displayMenu = false
 					}
-					else if (mouse.y > investButtonY && mouse.y < investButtonY + height)
+					else if (finger.y > investButtonY && finger.y < investButtonY + height)
 					{
 						currentScreen = 'invest'
 						displayMenu = false
