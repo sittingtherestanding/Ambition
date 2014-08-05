@@ -22,9 +22,14 @@ var game = new Lorina()
 		.makeFullscreen()
 		.appendCanvas()
 
+// Haaaaaaack
+if (l.retina > 2)
+{
+	l.retina = 2.5
+}
+
 var pusher = new Pusher()
 	pusher.register()
-		  .notify('This is a test', 5)
 
 var currentScreen = 'earn'
 var displayMenu = false

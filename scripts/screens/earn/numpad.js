@@ -379,7 +379,7 @@ var Numpad = function()
 							  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
 							  .setFriction(0)
 							  .spin(tool.random(-6, 6))
-							  .pushTowardDegree(tool.random(140, 40), tool.random(9, 13))
+							  .pushTowardDegree(tool.random(130, 50), tool.random(15, 20))
 					rain.add(dollar)
 				}
 			}
