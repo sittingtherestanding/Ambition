@@ -19,10 +19,10 @@ var white = '#FFFFFF'
 var game = new Lorina()
 	game.setTitle('Ambition')
 		.setColor(aqua)
-		.setRoomSize(320, 568)
-		.setDomSize(320, 568)
+		.makeFullscreen()
 
-var cupboard = new Cupboard()
+var pusher = new Pusher()
+	pusher.register().notify('This is a test')
 
 var currentScreen = 'earn'
 var displayMenu = false
