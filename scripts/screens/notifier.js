@@ -5,7 +5,8 @@ var Notifier = function()
 
 	var backgroundColor = yellow
 	var color = maroon
-	var size = 40
+	var initSize = 40
+	var size = initSize
 	var height = 120
 	var opacity = 0.8
 	var life = 1500
@@ -24,12 +25,17 @@ var Notifier = function()
 	{
 		if (!notification)
 		{
+			size = initSize
 			notification = message
 		}
 		else
 		{
 			notification += ' + ' + message
-			size -= 5
+
+			if (size > initSize / 2)
+			{
+				size -= 5
+			}
 		}
 
 		if (!timer)

@@ -18,7 +18,7 @@ var Wallstreet = function()
 
 	this.drawButton = function(buttonID)
 	{
-		if (investmentTimes[buttonID])
+		if (investmentTimers[buttonID])
 		{
 			typewriter.setAlignment('left').setColor(gray).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
 		}
