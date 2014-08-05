@@ -3,7 +3,7 @@ var Wallstreet = function()
 	var cupboard = new Cupboard()
 
 	var size = 20
-	var padding = 15
+	var padding = 15 * l.retina
 
 	var header = new Header()
 
@@ -11,7 +11,7 @@ var Wallstreet = function()
 	var itemSize = padding * 5
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(l.retina * size).setColor(black).setFont('bebas').setBaseline('top')
+		typewriter.setSize(l.retina * size).setColor(black).setFont('BebasNeue').setBaseline('top')
 	var tool = new Tool()
 
 	var canTouch = false

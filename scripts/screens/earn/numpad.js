@@ -5,7 +5,7 @@ var Numpad = function()
 	var pencil = new Pencil()
 	var tool = new Tool()
 	var typewriter = new Typewriter()
-		typewriter.setSize(l.retina * 50).setAlignment('center').setColor(black).setFont('bebas').setBaseline('middle')
+		typewriter.setSize(l.retina * 50).setAlignment('center').setColor(black).setFont('BebasNeue').setBaseline('middle')
 	var header = new Header()
 
 	var buttonModifier = 3.1 // Larger numbers equal smaller buttons (3 is minimum)

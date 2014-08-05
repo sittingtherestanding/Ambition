@@ -20,6 +20,7 @@ var game = new Lorina()
 	game.setTitle('Ambition')
 		.setColor(aqua)
 		.makeFullscreen()
+		.appendCanvas()
 
 var pusher = new Pusher()
 	pusher.register().notify('This is a test')

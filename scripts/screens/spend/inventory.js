@@ -1,7 +1,7 @@
 var Inventory = function()
 {
 	var size = 20
-	var padding = 15
+	var padding = 15 * l.retina
 
 	var header = new Header()
 
@@ -9,7 +9,7 @@ var Inventory = function()
 	var itemSize = padding * 5
 
 	var typewriter = new Typewriter()
-		typewriter.setSize(l.retina * size).setColor(black).setFont('bebas').setBaseline('top')
+		typewriter.setSize(l.retina * size).setColor(black).setFont('BebasNeue').setBaseline('top')
 
 	var canTouch = false
 

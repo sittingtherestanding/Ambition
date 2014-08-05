@@ -6,7 +6,7 @@ var Header = function()
 	var yText = this.height / 2
 
 	var typewriter = new Typewriter()
-		typewriter.setFont('bebas').setBaseline('middle')
+		typewriter.setFont('BebasNeue').setBaseline('middle')
 	var pencil = new Pencil()
 
 	var canTouch = true
