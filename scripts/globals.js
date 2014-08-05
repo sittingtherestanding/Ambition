@@ -16,8 +16,6 @@ var gray = '#AAAAAA'
 var silver = '#DDDDDD'
 var white = '#FFFFFF'
 
-// Save data loaded at bottom of file
-
 var game = new Lorina()
 	game.setTitle('Ambition')
 		.setColor(aqua)
@@ -33,7 +31,6 @@ var problemType
 
 var numbers = new Array() // The list of ints used to display math problems
 var userInput = '?'
-
 var investmentHeader = 'no current investments'
 
 var jobs = [
@@ -236,5 +233,3 @@ var investmentOptions = [
 		failed: false
 	}
 ]
-
-loadStorage()

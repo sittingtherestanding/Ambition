@@ -10,21 +10,6 @@ var Wallstreet = function()
 	var top = header.height + padding * 3
 	var itemSize = padding * 5
 
-	if (cupboard.get('timers')) // Load if we have saved timers
-	{
-		this.timers = cupboard.get('timers')
-	}
-	else
-	{
-		this.timers = new Array()
-	}
-
-	var i = investmentOptions.length
-	while (i--)
-	{
-		this.timers[i] = new Timer()
-	}
-
 	var typewriter = new Typewriter()
 		typewriter.setSize(size).setColor(black).setFont('bebas_neueregular').setBaseline('top')
 	var tool = new Tool()
@@ -105,13 +90,14 @@ var Wallstreet = function()
 
 		this.invest = function(index)
 		{
-			if (money >= investmentOptions[index].price && !this.timers[index].time)
+			if (money >= investmentOptions[index].price && !investmentTimers[index].time)
 			{
 				investmentOptions[index].bought++
 
-				this.timers[index].start()
+				investmentTimers[index].start()
+				investmentTimes[index] = investmentTimers[index].time
 
-				cupboard.set('timers', this.timers) // Save to localStorage
+				cupboard.save('investmentTimes', investmentTimes) // Save to localStorage
 
 				money -= investmentOptions[index].price
 
@@ -122,9 +108,9 @@ var Wallstreet = function()
 			this.checkInvestments = function()
 			{
 				// Check for running timers
-				if (this.timers[1].time)
+				if (investmentTimers[1].time)
 				{
-					var minutesLeft = (investmentOptions[1].wait * 60) - Math.round(this.timers[1].check() / 1000 / 60)
+					var minutesLeft = (investmentOptions[1].wait * 60) - Math.round(investmentTimers[1].check() / 1000 / 60)
 					var hoursLeft = Math.round(minutesLeft / 60 * 10) / 10
 
 					if (minutesLeft == 1)
@@ -153,7 +139,7 @@ var Wallstreet = function()
 				while (i--)
 				{
 					// Check for finished timers
-					if (this.timers[i + 1].check() >= investmentOptions[i + 1].wait * 1000 * 60 * 60)
+					if (investmentTimers[i + 1].check() >= investmentOptions[i + 1].wait * 1000 * 60 * 60)
 					{
 						if (Math.round(tool.random(0, 100 / investmentOptions[i + 1].risk)) !== 0)
 						{
@@ -161,7 +147,7 @@ var Wallstreet = function()
 
 							investmentOptions[i + 1].returned = true
 
-							this.timers[i + 1].clear()
+							investmentTimers[i + 1].clear()
 						}
 						else
 						{

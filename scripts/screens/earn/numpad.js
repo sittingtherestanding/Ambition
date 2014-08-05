@@ -535,7 +535,7 @@ var Numpad = function()
 		}
 		else if (problemType == 4)
 		{
-			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' * ' + numbers[1] + ' = ' + userInput)
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' x ' + numbers[1] + ' = ' + userInput)
 		}
 		else if (problemType == 5)
 		{
@@ -559,7 +559,7 @@ var Numpad = function()
 		}
 		else if (problemType == 10)
 		{
-			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' * ' + numbers[1] + ' = ' + userInput)
+			typewriter.setAlignment('center').setPosition(l.room.width / 2, problemPosition).write(numbers[0] + ' x ' + numbers[1] + ' = ' + userInput)
 		}
 		else if (problemType == 11)
 		{
