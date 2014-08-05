@@ -55,8 +55,6 @@ var saveStorage = function()
 	cupboard.save('solved', solved)
 
 	cupboard.save('investmentTimes', investmentTimes)
-
-	console.log('saved', cupboard.get('investmentTimes'))
 }
 
 loadStorage()
