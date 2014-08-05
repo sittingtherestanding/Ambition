@@ -57,7 +57,7 @@ var Wallstreet = function()
 			{
 				this.lottery(index)
 			}
-			else if (index == 1)
+			else if (index > 0)
 			{
 				this.invest(index)
 			}
@@ -108,31 +108,36 @@ var Wallstreet = function()
 			this.checkInvestments = function()
 			{
 				// Check for running timers
-				if (investmentTimers[1].time)
+				for (var i = 1; i < investmentTimers.length; i++)
 				{
-					var minutesLeft = (investmentOptions[1].wait * 60) - Math.round(investmentTimers[1].check() / 1000 / 60)
-					var hoursLeft = Math.round(minutesLeft / 60 * 10) / 10
+					if (investmentTimers[i].time)
+					{
+						var minutesLeft = (investmentOptions[i].wait * 60) - Math.round(investmentTimers[i].check() / 1000 / 60)
+						var hoursLeft = Math.round(minutesLeft / 60 * 10) / 10
 
-					if (minutesLeft == 1)
-					{
-						investmentHeader = minutesLeft + ' minute until next return'
-					}
-					else if (minutesLeft < 60)
-					{
-						investmentHeader = minutesLeft + ' minutes until next return'
-					}
-					else if (hoursLeft == 1)
-					{
-						investmentHeader = hoursLeft + ' hour until next return'
+						if (minutesLeft == 1)
+						{
+							investmentHeader = minutesLeft + ' minute until next return'
+						}
+						else if (minutesLeft < 60)
+						{
+							investmentHeader = minutesLeft + ' minutes until next return'
+						}
+						else if (hoursLeft == 1)
+						{
+							investmentHeader = hoursLeft + ' hour until next return'
+						}
+						else
+						{
+							investmentHeader = hoursLeft + ' hours until next return'
+						}
+
+						break
 					}
 					else
 					{
-						investmentHeader = hoursLeft + ' hours until next return'
+						investmentHeader = 'no current investments'
 					}
-				}
-				else
-				{
-					investmentHeader = 'no current investments'
 				}
 
 				var i = investmentOptions.length - 1
