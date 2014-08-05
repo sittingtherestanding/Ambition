@@ -18,7 +18,14 @@ var Wallstreet = function()
 
 	this.drawButton = function(buttonID)
 	{
-		typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
+		if (investmentTimes[buttonID])
+		{
+			typewriter.setAlignment('left').setColor(gray).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
+		}
+		else
+		{
+			typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
+		}
 
 		if (investmentOptions[buttonID].bought == 1)
 		{
