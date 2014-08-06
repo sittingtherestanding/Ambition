@@ -5,6 +5,8 @@ var rain = new Group() // For dollars which should draw on every screen
 
 var makeItRain = function(count)
 {
+	var count = Math.round(count)
+
 	while (count--)
 	{
 		var dollar = new Entity()

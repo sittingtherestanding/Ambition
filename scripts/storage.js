@@ -40,6 +40,11 @@ var loadStorage = function()
 			investmentTimers[i].time = investmentTimes[i]
 		}
 	}
+
+	if (solved % 10 == 0) // "Fix" a bug that allowed you to get interest upon every reload if paused at the right time
+	{
+		solved += 0.00001
+	}
 }
 
 var saveStorage = function()

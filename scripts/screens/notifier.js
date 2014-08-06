@@ -91,7 +91,10 @@ var Notifier = function()
 		{
 			canEarnInterest = false
 
-			money += Math.round(money / 100)
+			var increase = Math.round(money / 100)
+
+			money += increase
+			makeItRain(increase)
 
 			saveStorage()
 

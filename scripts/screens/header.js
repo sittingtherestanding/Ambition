@@ -52,11 +52,11 @@ var Header = function()
 		{
 			if (solved == 1)
 			{
-				typewriter.write(solved + ' problem solved')
+				typewriter.write(Math.round(solved) + ' problem solved')
 			}
 			else
 			{
-				typewriter.write(solved + ' problems solved')
+				typewriter.write(Math.round(solved) + ' problems solved')
 			}
 		}
 		else if (currentScreen == 'spend')
