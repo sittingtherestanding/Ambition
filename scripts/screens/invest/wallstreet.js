@@ -8,7 +8,7 @@ var Wallstreet = function()
 	var header = new Header()
 
 	var top = header.height + padding * 3
-	var itemSize = padding * 5
+	var itemSize = padding * 6
 
 	var typewriter = new Typewriter()
 		typewriter.setSize(l.retina * size).setColor(black).setFont('BebasNeue').setBaseline('top')
@@ -18,37 +18,46 @@ var Wallstreet = function()
 
 	this.drawButton = function(buttonID)
 	{
-		if (investmentTimers[buttonID])
+		if (investmentTimes[buttonID] > 0)
 		{
-			typewriter.setAlignment('left').setColor(gray).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
+			typewriter.setAlignment('left').setColor(yellow).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
 		}
 		else
 		{
-			typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
-		}
+			if (investmentOptions[buttonID].price <= money)
+			{
+				typewriter.setColor(aqua)
+			}
+			else
+			{
+				typewriter.setColor(gray)
+			}
 
-		if (investmentOptions[buttonID].bought == 1)
-		{
-			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write('bought ' + investmentOptions[buttonID].bought + ' time')
-		}
-		else
-		{
-			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write('bought ' + investmentOptions[buttonID].bought + ' times')
+			typewriter.setAlignment('left').setPosition(padding, top + itemSize * (buttonID)).write(investmentOptions[buttonID].name)
 		}
 
 		typewriter.setAlignment('right').setColor(lime).setPosition(l.room.width - padding, top + itemSize * (buttonID)).write('$' + investmentOptions[buttonID].price)
 
 		if (investmentOptions[buttonID].wait == 1)
 		{
- 			typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% risk over ' + investmentOptions[buttonID].wait + ' hour')
+ 			typewriter.setAlignment('left').setColor(silver).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% risk for a ' + investmentOptions[buttonID].interest + '% return after 1 hr')
 		}
 		else if (investmentOptions[buttonID].wait > 0)
 		{
- 			typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% risk over ' + investmentOptions[buttonID].wait + ' hours')
+ 			typewriter.setAlignment('left').setColor(silver).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% risk for a ' + investmentOptions[buttonID].interest + '% return after ' + investmentOptions[buttonID].wait + ' hrs')
 		}
 		else
 		{
- 			typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% immediate risk')
+ 			typewriter.setAlignment('left').setColor(silver).setPosition(padding, top + itemSize * (buttonID) + padding * 1.5).write(investmentOptions[buttonID].risk + '% risk for a ' + investmentOptions[buttonID].interest + '% return')
+		}
+
+		if (investmentOptions[buttonID].bought == 1)
+		{
+			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 3).write('bought ' + investmentOptions[buttonID].bought + ' time')
+		}
+		else
+		{
+			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 3).write('bought ' + investmentOptions[buttonID].bought + ' times')
 		}
 	}
 
@@ -99,7 +108,7 @@ var Wallstreet = function()
 
 		this.invest = function(index)
 		{
-			if (money >= investmentOptions[index].price && !investmentTimers[index].time)
+			if (investmentOptions[index] && money >= investmentOptions[index].price && !investmentTimers[index].time)
 			{
 				investmentOptions[index].bought++
 

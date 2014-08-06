@@ -88,6 +88,15 @@ var Header = function()
 		}
 		else if (currentScreen == 'invest')
 		{
+			if (investmentHeader == 'no current investments')
+			{
+				typewriter.setColor(gray)
+			}
+			else
+			{
+				typewriter.setColor(yellow)
+			}
+			
 			typewriter.write(investmentHeader)
 		}
 	}
