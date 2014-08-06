@@ -7,6 +7,11 @@ var makeItRain = function(count)
 {
 	var count = Math.round(count)
 
+	if (count > 1000)
+	{
+		count = 1000
+	}
+
 	while (count--)
 	{
 		var dollar = new Entity()

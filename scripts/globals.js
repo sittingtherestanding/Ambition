@@ -214,7 +214,7 @@ var investmentOptions = [
 		interest: 50,
 		risk: 10,
 		price: 10000,
-		wait: 1, // in hours
+		wait: 1 / 60 / 60 * 5, // in hours
 		bought: 0,
 		returned: false,
 		failed: false

@@ -61,9 +61,13 @@ var Notifier = function()
 		{
 			investmentOptions[0].returned = false
 
-			saveStorage()
-
 			this.notify('won lottery')
+		}
+		else if (investmentOptions[0].failed)
+		{
+			investmentOptions[0].failed = false
+
+			this.notify('didn\'t win')
 		}
 
 		var i = investmentOptions.length - 1

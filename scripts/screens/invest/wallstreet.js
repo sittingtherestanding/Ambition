@@ -92,6 +92,10 @@ var Wallstreet = function()
 				{
 					this.winLottery()
 				}
+				else
+				{
+					investmentOptions[index].failed = true
+				}
 
 				saveStorage()
 			}
@@ -102,6 +106,8 @@ var Wallstreet = function()
 				var increase = investmentOptions[index].price * investmentOptions[index].interest
 				money += increase
 				makeItRain(increase)
+
+				saveStorage()
 
 				investmentOptions[index].returned = true
 			}
