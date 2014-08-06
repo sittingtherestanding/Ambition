@@ -14,9 +14,7 @@ var Inventory = function()
 
 	var canTouch = false
 
-	var scrollPosition = 0
-	var scrollSpeed = 5
-	var scrollLimit = inventoryItems.length * (padding * 3)
+	var currentItem = 0
 
 	var scrollbarHeight = 12 * l.retina * 3 // So it's a bit bigger than the header
 	var scrollbarColor = black
@@ -33,50 +31,59 @@ var Inventory = function()
 				.setAnchor(25, 12)
 				.setPosition(l.room.width / 4 * 3, l.room.height - scrollbarHeight / 2)
 
-	this.drawButton = function(buttonID)
+	this.drawButton = function(i)
 	{
-		typewriter.setAlignment('left').setColor(aqua).setPosition(padding, scrollPosition + top + itemSize * (buttonID)).write(inventoryItems[buttonID].name)
+		var buttonID = i + currentItem
 
-		if (inventoryItems[buttonID].bought != 1)
+		if (inventoryItems[buttonID])
 		{
-			typewriter.setAlignment('left').setColor(black).setPosition(padding, scrollPosition + top + itemSize * (buttonID) + padding * 1.5).write('bought ' + inventoryItems[buttonID].bought + ' times')
-		}
-		else
-		{
-			typewriter.setAlignment('left').setColor(black).setPosition(padding, scrollPosition + top + itemSize * (buttonID) + padding * 1.5).write('bought ' + inventoryItems[buttonID].bought + ' time')
-		}
+			typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (i)).write(inventoryItems[buttonID].name)
 
-		typewriter.setAlignment('right').setColor(lime).setPosition(l.room.width - padding, scrollPosition + top + itemSize * (buttonID)).write('$' + inventoryItems[buttonID].price)
-		typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, scrollPosition + top + itemSize * (buttonID) + padding * 1.5).write(inventoryItems[buttonID].points + ' SSP')
+			if (inventoryItems[buttonID].bought != 1)
+			{
+				typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (i) + padding * 1.5).write('bought ' + inventoryItems[buttonID].bought + ' times')
+			}
+			else
+			{
+				typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (i) + padding * 1.5).write('bought ' + inventoryItems[buttonID].bought + ' time')
+			}
+
+			typewriter.setAlignment('right').setColor(lime).setPosition(l.room.width - padding, top + itemSize * (i)).write('$' + inventoryItems[buttonID].price)
+			typewriter.setAlignment('right').setColor(gray).setPosition(l.room.width - padding, top + itemSize * (i) + padding * 1.5).write(inventoryItems[buttonID].points + ' SSP')
+		}
 	}
 
 	this.watch = function()
 	{
-		// Scroll
-		if (finger.checkTouched(scrollDown))
-		{
-			if (scrollPosition > -scrollLimit)
-			{
-				scrollPosition -= scrollSpeed
-			}
-		}
-		else if (finger.checkTouched(scrollUp))
-		{
-			if (scrollPosition < 0)
-			{
-				scrollPosition += scrollSpeed
-			}
-		}
-		else if (finger.touching && canTouch) // Buy things
+		if (finger.touching && canTouch)
 		{
 			canTouch = false
 
-			var index = Math.floor((-scrollPosition + finger.y - top) / itemSize)
-			console.log(index)
-
-			if (index >= 0) // Make it so we can't click on the header to buy things
+			if (finger.y > l.room.height - scrollbarHeight) // Scroll
 			{
-				this.purchase(index)
+				if (finger.x < l.room.width / 2)
+				{
+					if (currentItem < inventoryItems.length - 1)
+					{
+						currentItem++
+					}
+				}
+				else
+				{
+					if (currentItem > 0)
+					{
+						currentItem--
+					}
+				}
+			}
+			else // Buy things
+			{
+				var index = currentItem + Math.floor((finger.y - top) / itemSize)
+
+				if (index >= 0) // Make it so we can't click on the header to buy things
+				{
+					this.purchase(index)
+				}
 			}
 		}
 	}
@@ -105,7 +112,8 @@ var Inventory = function()
 
 		this.watch()
 
-		var i = inventoryItems.length
+		// Draw buttons
+		var i = Math.floor(l.room.height / itemSize)
 		while (i--)
 		{
 			this.drawButton(i)
