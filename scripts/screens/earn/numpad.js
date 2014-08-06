@@ -24,8 +24,6 @@ var Numpad = function()
 
 	var problemPosition = header.height + (this.top - header.height) / 2
 
-	var rain = new Group()
-
 	var pressedButton = new Entity()
 		pressedButton.setSprite('images/pressed.png')
 			   		 .setPosition(columnOne, rowOne)
@@ -584,8 +582,6 @@ var Numpad = function()
 		buttonClear.draw()
 		buttonDelete.draw()
 
-		pressedButton.draw().banish()
-
-		rain.applyPhysics().draw()
+		pressedButton.draw()
 	}
 }

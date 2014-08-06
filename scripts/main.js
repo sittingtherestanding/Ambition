@@ -1,5 +1,7 @@
 var finger = new Finger()
 
+var rain = new Group() // For dollars which should draw on every screen
+
 var notifier = new Notifier()
 var header = new Header()
 var menu = new Menu()
@@ -13,6 +15,10 @@ var main = function()
 	notifier.watch()
 
 	game.blank()
+
+	wallstreet.checkInvestments()
+
+	notifier.draw()
 
 	header.draw() // Draw the header on every screen
 
@@ -29,11 +35,9 @@ var main = function()
 		wallstreet.draw()
 	}
 
-	wallstreet.checkInvestments()
-
-	notifier.draw()
-
 	menu.draw()
+
+	rain.applyPhysics().banish(150).draw()
 
 	game.draw()
 }
