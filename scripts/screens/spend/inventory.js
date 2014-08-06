@@ -71,7 +71,8 @@ var Inventory = function()
 		{
 			canTouch = false
 
-			var index = Math.floor((scrollPosition + finger.y - top) / itemSize)
+			var index = Math.floor((-scrollPosition + finger.y - top) / itemSize)
+			console.log(index)
 
 			if (index >= 0) // Make it so we can't click on the header to buy things
 			{
