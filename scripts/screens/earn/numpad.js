@@ -92,6 +92,8 @@ var Numpad = function()
 
 	var canTouch = true
 
+	var problemSolved = false
+
 	this.generateProblem = function()
 	{
 		if (jobLevel >= 14)
@@ -349,12 +351,16 @@ var Numpad = function()
 
 		this.pass = function()
 		{
+			problemSolved = true
+
 			game.setColor(lime)
 
 			makeItRain(jobs[jobLevel].salary[promotionLevel])
 
 			setTimeout(function()
 			{
+				problemSolved = false
+
 				solved++
 				money += jobs[jobLevel].salary[promotionLevel]
 
@@ -371,7 +377,7 @@ var Numpad = function()
 		// Check button presses
 		if (!displayMenu && canTouch)
 		{
-			if (finger.touching)
+			if (finger.touching && !problemSolved)
 			{
 				canTouch = false
 

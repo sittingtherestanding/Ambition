@@ -37,7 +37,14 @@ var Inventory = function()
 
 		if (inventoryItems[buttonID])
 		{
-			typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (i)).write(inventoryItems[buttonID].name)
+			if (inventoryItems[buttonID].price <= money)
+			{
+				typewriter.setAlignment('left').setColor(aqua).setPosition(padding, top + itemSize * (i)).write(inventoryItems[buttonID].name)
+			}
+			else
+			{
+				typewriter.setAlignment('left').setColor(gray).setPosition(padding, top + itemSize * (i)).write(inventoryItems[buttonID].name)
+			}
 
 			if (inventoryItems[buttonID].bought != 1)
 			{
