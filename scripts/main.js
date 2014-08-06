@@ -14,7 +14,7 @@ var makeItRain = function(count)
 				  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
 				  .setFriction(0)
 				  .spin(tool.random(-6, 6))
-				  .pushTowardDegree(tool.random(130, 50), tool.random(15, 20))
+				  .pushTowardDegree(tool.random(130, 50), tool.random(15, 35))
 		rain.add(dollar)
 	}
 }
@@ -35,8 +35,6 @@ var main = function()
 
 	wallstreet.checkInvestments()
 
-	header.draw() // Draw the header on every screen
-
 	if (currentScreen == 'earn')
 	{
 		numpad.draw()
@@ -50,9 +48,11 @@ var main = function()
 		wallstreet.draw()
 	}
 
-	notifier.draw()
+	header.draw() // Draw the header on every screen
 
 	menu.draw()
+
+	notifier.draw()
 
 	rain.applyPhysics().banish(150).draw()
 
