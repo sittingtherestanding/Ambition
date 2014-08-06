@@ -351,7 +351,7 @@ var Numpad = function()
 		{
 			game.setColor(lime)
 
-			this.makeItRain(jobs[jobLevel].salary[promotionLevel])
+			makeItRain(jobs[jobLevel].salary[promotionLevel])
 
 			setTimeout(function()
 			{
@@ -365,22 +365,6 @@ var Numpad = function()
 				game.setColor(aqua)
 			}, 350)
 		}
-
-			this.makeItRain = function(count)
-			{
-				while (count--)
-				{
-					var dollar = new Entity()
-						dollar.setSprite('images/dollar.png')
-							  .setPosition(tool.random(l.room.width / 6, l.room.width - l.room.width / 6), l.room.height)
-							  .setAnchor(25 * l.retina, 12 * l.retina)
-							  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
-							  .setFriction(0)
-							  .spin(tool.random(-6, 6))
-							  .pushTowardDegree(tool.random(130, 50), tool.random(15, 20))
-					rain.add(dollar)
-				}
-			}
 
 	this.watch = function()
 	{

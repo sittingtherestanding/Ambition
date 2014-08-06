@@ -90,7 +90,9 @@ var Wallstreet = function()
 
 			this.winLottery = function(index)
 			{
-				money += investmentOptions[index].price * investmentOptions[index].interest
+				var increase = investmentOptions[index].price * investmentOptions[index].interest
+				money += increase
+				makeItRain(increase)
 
 				investmentOptions[index].returned = true
 			}
@@ -157,7 +159,10 @@ var Wallstreet = function()
 					{
 						if (Math.round(tool.random(0, 100 / investmentOptions[i + 1].risk)) !== 0)
 						{
-							money += investmentOptions[i + 1].price + Math.round(investmentOptions[i + 1].price / 100 * investmentOptions[i + 1].interest)
+							var increase = investmentOptions[i + 1].price + Math.round(investmentOptions[i + 1].price / 100 * investmentOptions[i + 1].interest)
+
+							makeItRain(increase)
+							money += increase
 
 							investmentOptions[i + 1].returned = true
 

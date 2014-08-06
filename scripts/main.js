@@ -1,6 +1,23 @@
 var finger = new Finger()
 
+var tool = new Tool()
 var rain = new Group() // For dollars which should draw on every screen
+
+var makeItRain = function(count)
+{
+	while (count--)
+	{
+		var dollar = new Entity()
+			dollar.setSprite('images/dollar.png')
+				  .setPosition(tool.random(l.room.width / 6, l.room.width - l.room.width / 6), l.room.height)
+				  .setAnchor(25 * l.retina, 12 * l.retina)
+				  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
+				  .setFriction(0)
+				  .spin(tool.random(-6, 6))
+				  .pushTowardDegree(tool.random(130, 50), tool.random(15, 20))
+		rain.add(dollar)
+	}
+}
 
 var notifier = new Notifier()
 var header = new Header()
@@ -18,8 +35,6 @@ var main = function()
 
 	wallstreet.checkInvestments()
 
-	notifier.draw()
-
 	header.draw() // Draw the header on every screen
 
 	if (currentScreen == 'earn')
@@ -34,6 +49,8 @@ var main = function()
 	{
 		wallstreet.draw()
 	}
+
+	notifier.draw()
 
 	menu.draw()
 
