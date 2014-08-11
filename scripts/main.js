@@ -7,18 +7,18 @@ var makeItRain = function(count)
 {
 	var count = Math.round(count)
 
-	if (count > 1000)
+	if (count > 500)
 	{
-		count = 1000
+		count = 500
 	}
 
 	while (count--)
 	{
 		var dollar = new Entity()
 			dollar.setSprite('images/dollar.png')
-				  .setPosition(tool.random(l.room.width / 6, l.room.width - l.room.width / 6), l.room.height)
+				  .setPosition(tool.random(l.room.width / 6, l.room.width - l.room.width / 6), l.room.height + 100)
 				  .setAnchor(25 * l.retina, 12 * l.retina)
-				  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
+				  // .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
 				  .setFriction(0)
 				  .spin(tool.random(-6, 6))
 				  .pushTowardDegree(tool.random(130, 50), tool.random(15, 35))

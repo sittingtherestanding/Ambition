@@ -214,7 +214,7 @@ var investmentOptions = [
 		interest: 50,
 		risk: 10,
 		price: 10000,
-		wait: 1 / 60 / 60 * 5, // in hours
+		wait: 1 / 60 * 2, // in hours
 		bought: 0,
 		returned: false,
 		failed: false
@@ -224,7 +224,7 @@ var investmentOptions = [
 		interest: 150,
 		risk: 5,
 		price: 50000,
-		wait: 12, // in hours
+		wait: 12 / 60 / 12 / 2, // in hours
 		bought: 0,
 		returned: false,
 		failed: false

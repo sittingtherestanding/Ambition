@@ -138,12 +138,17 @@ var Wallstreet = function()
 				{
 					if (investmentTimers[i].time)
 					{
-						var minutesLeft = (investmentOptions[i].wait * 60) - Math.round(investmentTimers[i].check() / 1000 / 60)
-						var hoursLeft = Math.round(minutesLeft / 60 * 10) / 10
+						var secondsLeft = (investmentOptions[i].wait * 60 * 60) - Math.ceil(investmentTimers[i].check() / 1000)
+						var minutesLeft = (investmentOptions[i].wait * 60) - Math.ceil(investmentTimers[i].check() / 1000 / 60)
+						var hoursLeft = Math.ceil(minutesLeft / 60 * 10) / 10
 
-						if (minutesLeft == 1)
+						if (minutesLeft < 1)
 						{
-							investmentHeader = minutesLeft + ' minute until next return'
+							investmentHeader = secondsLeft + ' seconds until next return'
+						}
+						else if (minutesLeft == 1)
+						{
+							investmentHeader = '1 minute until next return'
 						}
 						else if (minutesLeft < 60)
 						{
@@ -182,6 +187,7 @@ var Wallstreet = function()
 							investmentOptions[i + 1].returned = true
 
 							investmentTimers[i + 1].clear()
+							investmentTimes[i+ 1] = 0
 						}
 						else
 						{
