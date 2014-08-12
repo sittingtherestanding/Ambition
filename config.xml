@@ -10,13 +10,13 @@
 
 	<preference name="phonegap-version" value="3.5.0" />
 
-	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" />
-
 	<preference name="fullscreen" value="true" />
 	<preference name="orientation" value="portrait" />
 	<preference name="disallowOverscroll" value="true" />
-	<preference name="EnableViewportScale" value="true"/>
 	<preference name="webviewbounce" value="false" />
+	<preference name="EnableViewportScale" value="true" /> <!-- For retina -->
+
+	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" />
 
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
