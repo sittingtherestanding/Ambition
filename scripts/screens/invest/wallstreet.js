@@ -151,7 +151,7 @@ var Wallstreet = function()
 				investmentTimers[index].start()
 				investmentTimes[index] = investmentTimers[index].time
 
-				pusher.notify('Your investment finished!', investmentOptions.wait * 60  * 60)
+				// pusher.notify('Your investment finished!', investmentOptions.wait * 60  * 60)
 
 				cupboard.save('investmentTimes', investmentTimes) // Save to localStorage
 

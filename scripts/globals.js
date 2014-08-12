@@ -28,8 +28,10 @@ if (l.retina > 2)
 	l.retina = 2.5
 }
 
+/*
 var pusher = new Pusher()
 	pusher.register()
+*/
 
 var currentScreen = 'earn'
 var displayMenu = false
