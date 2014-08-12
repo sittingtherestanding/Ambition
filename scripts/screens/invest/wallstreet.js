@@ -7,7 +7,7 @@ var Wallstreet = function()
 
 	var header = new Header()
 
-	var top = header.height + padding * 3
+	var top = padding * 3
 	var itemSize = padding * 6
 
 	var typewriter = new Typewriter()
@@ -59,6 +59,36 @@ var Wallstreet = function()
 		{
 			typewriter.setAlignment('left').setColor(black).setPosition(padding, top + itemSize * (buttonID) + padding * 3).write('bought ' + investmentOptions[buttonID].bought + ' times')
 		}
+
+		if (investmentTimes[buttonID] > 0)
+		{
+			var secondsLeft = (investmentOptions[buttonID].wait * 60 * 60) - Math.ceil(investmentTimers[buttonID].check() / 1000)
+			var minutesLeft = (investmentOptions[buttonID].wait * 60) - Math.ceil(investmentTimers[buttonID].check() / 1000 / 60)
+			var hoursLeft = Math.ceil(minutesLeft / 60 * 10) / 10
+
+			typewriter.setAlignment('right').setColor(yellow).setPosition(l.room.width - padding, top + itemSize * (buttonID) + padding * 3)
+
+			if (minutesLeft < 1)
+			{
+				typewriter.write(secondsLeft + ' seconds until return')
+			}
+			else if (minutesLeft == 1)
+			{
+				typewriter.write('1 minute until return')
+			}
+			else if (minutesLeft < 60)
+			{
+				typewriter.write(minutesLeft + ' minutes until return')
+			}
+			else if (hoursLeft == 1)
+			{
+				typewriter.write(hoursLeft + ' hour until return')
+			}
+			else
+			{
+				typewriter.write(hoursLeft + ' hours until return')
+			}
+		}
 	}
 
 	this.watch = function()
@@ -82,7 +112,7 @@ var Wallstreet = function()
 
 		this.lottery = function(index)
 		{
-			if (money >= investmentOptions[index].price && !displayMenu)
+			if (!displayMenu && money >= investmentOptions[index].price && !displayMenu)
 			{
 				money -= investmentOptions[index].price
 
@@ -114,7 +144,7 @@ var Wallstreet = function()
 
 		this.invest = function(index)
 		{
-			if (investmentOptions[index] && money >= investmentOptions[index].price && !investmentTimers[index].time)
+			if (!displayMenu && investmentOptions[index] && money >= investmentOptions[index].price && !investmentTimers[index].time)
 			{
 				investmentOptions[index].bought++
 
@@ -133,44 +163,6 @@ var Wallstreet = function()
 
 			this.checkInvestments = function()
 			{
-				// Check for running timers
-				for (var i = 1; i < investmentTimers.length; i++)
-				{
-					if (investmentTimers[i].time)
-					{
-						var secondsLeft = (investmentOptions[i].wait * 60 * 60) - Math.ceil(investmentTimers[i].check() / 1000)
-						var minutesLeft = (investmentOptions[i].wait * 60) - Math.ceil(investmentTimers[i].check() / 1000 / 60)
-						var hoursLeft = Math.ceil(minutesLeft / 60 * 10) / 10
-
-						if (minutesLeft < 1)
-						{
-							investmentHeader = secondsLeft + ' seconds until next return'
-						}
-						else if (minutesLeft == 1)
-						{
-							investmentHeader = '1 minute until next return'
-						}
-						else if (minutesLeft < 60)
-						{
-							investmentHeader = minutesLeft + ' minutes until next return'
-						}
-						else if (hoursLeft == 1)
-						{
-							investmentHeader = hoursLeft + ' hour until next return'
-						}
-						else
-						{
-							investmentHeader = hoursLeft + ' hours until next return'
-						}
-
-						break
-					}
-					else
-					{
-						investmentHeader = 'no current investments'
-					}
-				}
-
 				var i = investmentOptions.length - 1
 				while (i--)
 				{
@@ -201,6 +193,8 @@ var Wallstreet = function()
 
 	this.draw = function()
 	{
+		game.setColor(maroon)
+		
 		if (!finger.touching)
 		{
 			canTouch = true

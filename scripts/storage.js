@@ -2,6 +2,8 @@
 
 var cupboard = new Cupboard()
 
+var currentScreen = 'earn'
+
 var money = 0 // A straight int keeping track of your bank balance
 
 var social = 0 // A straight int keeping track of your SSP
@@ -23,6 +25,8 @@ while (i--)
 
 var loadStorage = function()
 {
+	cupboard.load('currentScreen')
+
 	cupboard.load('money')
 	cupboard.load('social')
 	cupboard.load('jobLevel')
@@ -49,6 +53,8 @@ var loadStorage = function()
 
 var saveStorage = function()
 {
+	cupboard.save('currentScreen', currentScreen)
+
 	cupboard.save('money', money)
 	cupboard.save('social', social)
 	cupboard.save('jobLevel', jobLevel)

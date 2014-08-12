@@ -29,23 +29,19 @@ var Menu = function()
 					{
 						currentScreen = 'earn'
 						displayMenu = false
-
-						game.setColor(aqua)
 					}
 					else if (finger.y > storeButtonY && finger.y < storeButtonY + height)
 					{
 						currentScreen = 'spend'
 						displayMenu = false
-
-						game.setColor(maroon)
 					}
 					else if (finger.y > investButtonY && finger.y < investButtonY + height)
 					{
 						currentScreen = 'invest'
 						displayMenu = false
-
-						game.setColor(maroon)
 					}
+
+					saveStorage()
 				}
 			}
 		}

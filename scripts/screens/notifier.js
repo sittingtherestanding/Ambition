@@ -9,7 +9,7 @@ var Notifier = function()
 	var size = initSize
 	var height = 80 * l.retina
 	var opacity = 0.8
-	var life = 1500
+	var life = 1000
 
 	var notification
 

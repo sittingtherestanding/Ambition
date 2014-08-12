@@ -498,6 +498,8 @@ var Numpad = function()
 
 	this.draw = function()
 	{
+		game.setColor(aqua)
+		
 		if (!finger.touching)
 		{
 			canTouch = true

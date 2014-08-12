@@ -110,6 +110,8 @@ var Inventory = function()
 
 	this.draw = function()
 	{
+		game.setColor(maroon)
+		
 		if (!finger.touching)
 		{
 			canTouch = true
