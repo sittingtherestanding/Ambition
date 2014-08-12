@@ -498,7 +498,10 @@ var Numpad = function()
 
 	this.draw = function()
 	{
-		game.setColor(aqua)
+		if (game.color == 'maroon')
+		{
+			game.setColor(aqua)
+		}
 		
 		if (!finger.touching)
 		{
