@@ -16,6 +16,8 @@
 	<preference name="EnableViewportScale" value="true"/>
 	<preference name="webviewbounce" value="false" />
 
+	<icon src="icon.png" />
+
 	<platform name="ios">
 		<!-- iOS 7.0+ -->
 		<!-- iPhone / iPod Touch  -->
