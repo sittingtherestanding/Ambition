@@ -99,7 +99,7 @@ var jobs = [
 		points: [175000, 200000, 225000]
 	},
 	{
-		name: 'ridiculously wealthy investor',
+		name: 'crazy wealthy investor',
 		salary: [5000, 6500, 8000],
 		points: [250000, 300000, 350000,]
 	},

@@ -41,9 +41,24 @@ var Header = function()
 
 		pencil.setPosition(0, 0).setSize(l.room.width, this.height).setColor(orange).fillRectangle()
 
+		if (money > 1000000)
+		{
+			var displayMoney = Math.round(money / 1000000 * 100) / 100 + 'M'
+		}
+		else if (money > 1000)
+		{
+			var displayMoney = Math.round(money / 1000 * 100) / 100 + 'K'
+		}
+		else
+		{
+			var displayMoney = money
+		}
+
 		typewriter.setColor(maroon)
-		typewriter.setSize(size).setPosition(padding, yText).setAlignment('left').write('$' + money)
+		typewriter.setSize(size).setPosition(padding, yText).setAlignment('left').write('$' + displayMoney)
+		typewriter.setColor(yellow)
 		typewriter.setSize(size).setPosition(l.room.width / 2, yText).setAlignment('center').write(jobs[jobLevel].name)
+		typewriter.setColor(maroon)
 		typewriter.setSize(size).setPosition(l.room.width - padding, yText).setAlignment('right').write('SSP ' + social)
 
 		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + yText).setAlignment('center')

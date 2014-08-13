@@ -51,7 +51,7 @@ var Notifier = function()
 			timer = setTimeout(function()
 			{
 				notification = undefined
-			}, life / 2)
+			}, life)
 		}
 	}
 
@@ -135,7 +135,7 @@ var Notifier = function()
 		if (notification)
 		{
 			pencil.setPosition(0, l.room.height - height).setSize(l.room.width, height).setColor(backgroundColor).setOpacity(opacity).fillRectangle()
-			typewriter.setPosition(l.room.width - height / 4, l.room.height - height / 2).setAlignment('right').setColor(color).setSize(size).write(notification)
+			typewriter.setPosition(height / 4, l.room.height - height / 2).setAlignment('left').setColor(color).setSize(size).write(notification)
 		}
 	}
 }
