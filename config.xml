@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sittingtherestanding.ambition" version="0.5.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.sittingtherestanding.ambition" version="0.5.9" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 	<name>Ambition</name>
 	<description>
 		Use math to reach the top of the world!
@@ -8,16 +8,14 @@
 		Sitting There Standing
 	</author>
 
-	<preference name="phonegap-version" value="3.5.0" />
+	<!-- <preference name="phonegap-version" value="3.5.0" /> -->
 
 	<preference name="orientation" value="portrait" />
 	<preference name="disallowOverscroll" value="true" />
 	<preference name="webviewbounce" value="false" />
 	<preference name="EnableViewportScale" value="true" /> <!-- For retina -->
-	<preference name="auto-hide-splash-screen" value="false" /> <!-- Let the plugin do the work but don't forget the "deviceready" function! -->
 
 	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" /> <!-- Hides the status bar -->
-	<gap:plugin name="org.apache.cordova.splashscreen" /> <!-- Removes the white flash after the splash screen -->
 
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
