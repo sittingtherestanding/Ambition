@@ -29,6 +29,8 @@ var Menu = function()
 					{
 						currentScreen = 'earn'
 						displayMenu = false
+
+						game.setColor(aqua)
 					}
 					else if (finger.y > storeButtonY && finger.y < storeButtonY + height)
 					{
