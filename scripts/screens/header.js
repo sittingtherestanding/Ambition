@@ -58,8 +58,22 @@ var Header = function()
 		typewriter.setSize(size).setPosition(padding, yText).setAlignment('left').write('$' + displayMoney)
 		typewriter.setColor(yellow)
 		typewriter.setSize(size).setPosition(l.room.width / 2, yText).setAlignment('center').write(jobs[jobLevel].name)
+		
+		if (social > 1000000)
+		{
+			var displaySocial = Math.round(social / 1000000 * 100) / 100 + 'M'
+		}
+		else if (social > 1000)
+		{
+			var displaySocial = Math.round(social / 1000 * 100) / 100 + 'K'
+		}
+		else
+		{
+			var displaySocial = social
+		}
+
 		typewriter.setColor(maroon)
-		typewriter.setSize(size).setPosition(l.room.width - padding, yText).setAlignment('right').write('SSP ' + social)
+		typewriter.setSize(size).setPosition(l.room.width - padding, yText).setAlignment('right').write(displaySocial + ' SSP')
 
 		typewriter.setColor(gray).setSize(size).setPosition(l.room.width / 2, this.height + yText).setAlignment('center')
 

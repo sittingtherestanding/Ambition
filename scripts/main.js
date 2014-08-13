@@ -7,9 +7,9 @@ var makeItRain = function(count)
 {
 	var count = Math.round(count)
 
-	if (count > 500)
+	if (count > 250)
 	{
-		count = 500
+		count = 250
 	}
 
 	while (count--)
