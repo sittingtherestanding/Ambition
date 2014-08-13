@@ -13,6 +13,8 @@ var promotionLevel = 0 // The 'jobs' index marking your current promotion level
 
 var solved = 0
 
+var inventoryScroll = 0
+
 var investmentTimes = new Array()
 var investmentTimers = new Array()
 
@@ -35,6 +37,7 @@ var loadStorage = function()
 	cupboard.load('investmentOptions')
 	cupboard.load('solved')
 	cupboard.load('investmentTimes')
+	cupboard.load('inventoryScroll')
 
 	if (cupboard.get('investmentTimes'))
 	{
@@ -66,6 +69,8 @@ var saveStorage = function()
 	cupboard.save('solved', solved)
 
 	cupboard.save('investmentTimes', investmentTimes)
+
+	cupboard.save('inventoryScroll', inventoryScroll)
 }
 
 loadStorage()

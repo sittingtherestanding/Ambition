@@ -14,8 +14,6 @@ var Inventory = function()
 
 	var canTouch = false
 
-	var currentItem = 0
-
 	var scrollbarHeight = 12 * l.retina * 3 // So it's a bit bigger than the header
 	var scrollbarColor = black
 
@@ -33,7 +31,7 @@ var Inventory = function()
 
 	this.drawButton = function(i)
 	{
-		var buttonID = i + currentItem
+		var buttonID = i + inventoryScroll
 
 		if (inventoryItems[buttonID])
 		{
@@ -70,22 +68,24 @@ var Inventory = function()
 			{
 				if (finger.x < l.room.width / 2)
 				{
-					if (currentItem < inventoryItems.length - 1)
+					if (inventoryScroll < inventoryItems.length - 1)
 					{
-						currentItem++
+						inventoryScroll++
 					}
 				}
 				else
 				{
-					if (currentItem > 0)
+					if (inventoryScroll > 0)
 					{
-						currentItem--
+						inventoryScroll--
 					}
 				}
+
+				saveStorage()
 			}
 			else // Buy things
 			{
-				var index = currentItem + Math.floor((finger.y - top) / itemSize)
+				var index = inventoryScroll + Math.floor((finger.y - top) / itemSize)
 
 				if (index >= 0) // Make it so we can't click on the header to buy things
 				{
@@ -128,7 +128,26 @@ var Inventory = function()
 
 		pencil.setPosition(0, l.room.height - scrollbarHeight).setSize(l.room.width, scrollbarHeight).setColor(scrollbarColor).fillRectangle()
 
+		if (inventoryScroll == inventoryItems.length - 1)
+		{
+			scrollDown.opacity = 0.35
+		}
+		else
+		{
+			scrollDown.opacity = 1
+		}
+
 		scrollDown.draw()
+
+		if (inventoryScroll == 0)
+		{
+			scrollUp.opacity = 0.35
+		}
+		else
+		{
+			scrollUp.opacity = 1
+		}
+
 		scrollUp.draw()
 	}
 }
