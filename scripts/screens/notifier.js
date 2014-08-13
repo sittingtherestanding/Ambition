@@ -2,6 +2,7 @@ var Notifier = function()
 {
 	var header = new Header()
 	var numpad = new Numpad() // Used for regenerating problems on promotion
+	var tool = new Tool()
 
 	var backgroundColor = yellow
 	var color = maroon
@@ -67,7 +68,24 @@ var Notifier = function()
 		{
 			investmentOptions[0].failed = false
 
-			this.notify('didn\'t win')
+			var random = Math.floor(tool.random(0, 4))
+
+			if (random == 0)
+			{
+				this.notify('didn\'t win')
+			}
+			else if (random == 1)
+			{
+				this.notify('you lost')
+			}
+			else if (random == 2)
+			{
+				this.notify('unlucky')
+			}
+			else if (random == 3)
+			{
+				this.notify('no payout')
+			}
 		}
 
 		var i = investmentOptions.length - 1
@@ -135,7 +153,7 @@ var Notifier = function()
 		if (notification)
 		{
 			pencil.setPosition(0, l.room.height - height).setSize(l.room.width, height).setColor(backgroundColor).setOpacity(opacity).fillRectangle()
-			typewriter.setPosition(height / 4, l.room.height - height / 2).setAlignment('left').setColor(color).setSize(size).write(notification)
+			typewriter.setPosition(l.room.width - height / 4, l.room.height - height / 2).setAlignment('right').setColor(color).setSize(size).write(notification)
 		}
 	}
 }
