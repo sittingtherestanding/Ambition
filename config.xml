@@ -14,8 +14,10 @@
 	<preference name="disallowOverscroll" value="true" />
 	<preference name="webviewbounce" value="false" />
 	<preference name="EnableViewportScale" value="true" /> <!-- For retina -->
+	<preference name="auto-hide-splash-screen" value="false" /> <!-- Let the plugin do the work but don't forget the "deviceready" function! -->
 
-	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" />
+	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" /> <!-- Hides the status bar -->
+	<gap:plugin name="org.apache.cordova.splashscreen" /> <!-- Removes the white flash after the splash screen -->
 
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
