@@ -8,86 +8,98 @@ var Numpad = function()
 		typewriter.setSize(l.retina * 50).setAlignment('center').setColor(black).setFont('BebasNeue').setBaseline('middle')
 	var header = new Header()
 
+	var screenRatio = l.room.width / l.room.height
+
 	var buttonModifier = 3.1 // Larger numbers equal smaller buttons (3 is minimum)
-	var buttonSize = l.room.width / buttonModifier
-	var padding = (l.room.width / 2 - ((l.room.width / buttonModifier) / 2) - buttonSize) / 2
+	var buttonWidth = l.room.width / buttonModifier
+
+	if (screenRatio > 0.6)
+	{
+		var buttonHeight = l.room.width / buttonModifier * 0.8
+	}
+	else
+	{
+		var buttonHeight = buttonWidth
+	}
+
+	var padding = (l.room.width / 2 - ((l.room.width / buttonModifier) / 2) - buttonWidth) / 2
 
 	var columnOne = 0 + padding
-	var columnTwo = l.room.width / 2 - buttonSize / 2
-	var columnThree = l.room.width - buttonSize - padding
+	var columnTwo = l.room.width / 2 - buttonWidth / 2
+	var columnThree = l.room.width - buttonWidth - padding
 
-	this.top = l.room.height - buttonSize * 4 - padding * 5
-	var rowOne = l.room.height - buttonSize * 4 - padding * 4
-	var rowTwo = l.room.height - buttonSize * 3 - padding * 3
-	var rowThree = l.room.height - buttonSize * 2 - padding * 2
-	var rowFour = l.room.height - buttonSize - padding
+	this.top = l.room.height - buttonHeight * 4 - padding * 5
+	var rowOne = l.room.height - buttonHeight * 4 - padding * 4
+	var rowTwo = l.room.height - buttonHeight * 3 - padding * 3
+	var rowThree = l.room.height - buttonHeight * 2 - padding * 2
+	var rowFour = l.room.height - buttonHeight - padding
 
 	var problemPosition = header.height + (this.top - header.height) / 2
 
 	var pressedButton = new Entity()
 		pressedButton.setSprite('images/pressed.png')
 			   		 .setPosition(columnOne, rowOne)
-			   		 .setStretch(buttonSize, buttonSize)
+			   		 .setStretch(buttonWidth, buttonHeight)
 			   		 .setOpacity(0)
 
 	var numberOne = new Entity()
 		numberOne.setSprite('images/one.png')
-				 .setStretch(buttonSize, buttonSize, true, true)
+				 .setStretch(buttonWidth, buttonHeight, true, true)
 				 .setPosition(columnOne, rowOne)
 
 	var numberTwo = new Entity()
 		numberTwo.setSprite('images/two.png')
-				 .setStretch(buttonSize, buttonSize, true, true)
+				 .setStretch(buttonWidth, buttonHeight, true, true)
 				 .setPosition(columnTwo, rowOne)
 
 	var numberThree = new Entity()
 		numberThree.setSprite('images/three.png')
-				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setStretch(buttonWidth, buttonHeight, true, true)
 				   .setPosition(columnThree, rowOne)
 
 	var numberFour = new Entity()
 		numberFour.setSprite('images/four.png')
-				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setStretch(buttonWidth, buttonHeight, true, true)
 				  .setPosition(columnOne, rowTwo)
 
 	var numberFive = new Entity()
 		numberFive.setSprite('images/five.png')
-				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setStretch(buttonWidth, buttonHeight, true, true)
 				  .setPosition(columnTwo, rowTwo)
 
 	var numberSix = new Entity()
 		numberSix.setSprite('images/six.png')
-				 .setStretch(buttonSize, buttonSize, true, true)
+				 .setStretch(buttonWidth, buttonHeight, true, true)
 				 .setPosition(columnThree, rowTwo)
 
 	var numberSeven = new Entity()
 		numberSeven.setSprite('images/seven.png')
-				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setStretch(buttonWidth, buttonHeight, true, true)
 				   .setPosition(columnOne, rowThree)
 
 	var numberEight = new Entity()
 		numberEight.setSprite('images/eight.png')
-				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setStretch(buttonWidth, buttonHeight, true, true)
 				   .setPosition(columnTwo, rowThree)
 
 	var numberNine = new Entity()
 		numberNine.setSprite('images/nine.png')
-				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setStretch(buttonWidth, buttonHeight, true, true)
 				  .setPosition(columnThree, rowThree)
 
 	var numberZero = new Entity()
 		numberZero.setSprite('images/zero.png')
-				  .setStretch(buttonSize, buttonSize, true, true)
+				  .setStretch(buttonWidth, buttonHeight, true, true)
 				  .setPosition(columnTwo, rowFour)
 
 	var buttonClear = new Entity()
 		buttonClear.setSprite('images/clear.png')
-				   .setStretch(buttonSize, buttonSize, true, true)
+				   .setStretch(buttonWidth, buttonHeight, true, true)
 				   .setPosition(columnOne, rowFour)
 
 	var buttonDelete = new Entity()
 		buttonDelete.setSprite('images/delete.png')
-					.setStretch(buttonSize, buttonSize, true, true)
+					.setStretch(buttonWidth, buttonHeight, true, true)
 					.setPosition(columnThree, rowFour)
 
 	var canTouch = true
