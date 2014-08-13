@@ -26,6 +26,18 @@ var makeItRain = function(count)
 	}
 }
 
+var pushNotify = function(message, delay) // Delay is in hours
+{
+	var date = new Date()
+	var future = new Date(date.getTime() + delay * 60 * 60 * 1000)
+
+	window.plugin.notification.local.add({
+	    date: future, // This expects a date object
+	    message: message // The message that is displayed
+	    // title: String // The title of the message
+	})
+}
+
 var notifier = new Notifier()
 var header = new Header()
 var menu = new Menu()
