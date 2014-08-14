@@ -2,6 +2,8 @@
 	<head>
 		<meta name = "viewport" content = "width = device-width, initial-scale = 0.5, maximum-scale = 0.5, target-densitydpi = device-dpi, user-scalable = 0">
 	
+		<script src = "cordova.js"></script> <!-- Needed to keep the screen awake -->
+	
 		<style>
 			@font-face {
 				font-family: 'BebasNeue';
@@ -11,6 +13,14 @@
 	</head>
 	<body>
 	</body>
+
+	<script>
+		document.addEventListener('deviceready', function () {
+			// window.plugin.notification.local is now available
+			window.plugins.insomnia.keepAwake()
+			console.log('Ready')
+		}, false)
+	</script>
 
 	<script src = "lorina.min.js"></script>
 

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sittingtherestanding.ambition" version="0.6.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.sittingtherestanding.ambition" version="0.6.5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 	<name>Ambition</name>
 	<description>
 		Use math to reach the top of the world!
@@ -17,6 +17,7 @@
 
 	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" /> <!-- Hides the status bar -->
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" /> <!-- Enable local push notifications -->
+	<gap:plugin name="nl.x-services.plugins.insomnia" /> <!-- Keep the screen awake -->
 
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
