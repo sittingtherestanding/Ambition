@@ -85,11 +85,14 @@ var Inventory = function()
 			}
 			else // Buy things
 			{
-				var index = inventoryScroll + Math.floor((finger.y - top) / itemSize)
-
-				if (index >= 0) // Make it so we can't click on the header to buy things
+				if (finger.y > top)
 				{
-					this.purchase(index)
+					var index = inventoryScroll + Math.floor((finger.y - top) / itemSize)
+
+					if (index >= 0) // Make it so we can't click on the header to buy things
+					{
+						this.purchase(index)
+					}
 				}
 			}
 		}
