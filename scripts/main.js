@@ -7,9 +7,9 @@ var makeItRain = function(count)
 {
 	var count = Math.round(count)
 
-	if (count > 250)
+	if (count > 100)
 	{
-		count = 250
+		count = 100
 	}
 
 	while (count--)
@@ -73,7 +73,7 @@ var main = function()
 
 	notifier.draw()
 
-	rain.pullTo(-175, -175, 0.75).applyPhysics().banish(150).draw()
+	rain.pullTo(-100, -175, 0.75).applyPhysics().banish(150).draw()
 
 	game.draw()
 }
