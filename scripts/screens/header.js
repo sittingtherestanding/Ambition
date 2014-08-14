@@ -41,11 +41,11 @@ var Header = function()
 
 		pencil.setPosition(0, 0).setSize(l.room.width, this.height).setColor(orange).fillRectangle()
 
-		if (money > 1000000)
+		if (money >= 1000000)
 		{
 			var displayMoney = Math.round(money / 1000000 * 100) / 100 + 'M'
 		}
-		else if (money > 1000)
+		else if (money >= 1000)
 		{
 			var displayMoney = Math.round(money / 1000 * 100) / 100 + 'K'
 		}
@@ -59,11 +59,11 @@ var Header = function()
 		typewriter.setColor(yellow)
 		typewriter.setSize(size).setPosition(l.room.width / 2, yText).setAlignment('center').write(jobs[jobLevel].name)
 		
-		if (social > 1000000)
+		if (social >= 1000000)
 		{
 			var displaySocial = Math.round(social / 1000000 * 100) / 100 + 'M'
 		}
-		else if (social > 1000)
+		else if (social >= 1000)
 		{
 			var displaySocial = Math.round(social / 1000 * 100) / 100 + 'K'
 		}
