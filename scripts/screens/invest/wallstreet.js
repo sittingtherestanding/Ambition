@@ -151,7 +151,7 @@ var Wallstreet = function()
 				investmentTimers[index].start()
 				investmentTimes[index] = investmentTimers[index].time
 
-				pushNotify('Your investment is complete!', investmentOptions[index].time)
+				pushNotify('Your investment is complete!', investmentOptions[index].wait)
 
 				// pusher.notify('Your investment finished!', investmentOptions.wait * 60  * 60)
 
