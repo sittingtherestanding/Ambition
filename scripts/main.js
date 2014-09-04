@@ -5,11 +5,13 @@ var rain = new Group() // For dollars which should draw on every screen
 
 var makeItRain = function(count)
 {
+	speaker.play('money')
+
 	var count = Math.round(count)
 
-	if (count > 100)
+	if (count > 50)
 	{
-		count = 100
+		count = 50
 	}
 
 	while (count--)
