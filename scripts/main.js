@@ -18,12 +18,12 @@ var makeItRain = function(count)
 	{
 		var dollar = new Entity()
 			dollar.setSprite('images/dollar.png')
-				  .setPosition(tool.random(l.room.width / 2, l.room.width + 100), l.room.height + 100)
+				  .setPosition(tool.random(50, l.room.width -50), l.room.height + 100)
 				  .setAnchor(25 * l.retina, 12 * l.retina)
-				  // .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
+				  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
 				  .setFriction(0)
-				  .spin(tool.random(-6, 6))
-				  .pushTowardDegree(tool.random(130, 50), tool.random(0, 10))
+				  .spin(tool.random(-7, 7))
+				  .pushTowardDegree(tool.random(130, 50), tool.random(10, 15))
 		rain.add(dollar)
 	}
 }
@@ -75,7 +75,7 @@ var main = function()
 
 	notifier.draw()
 
-	rain.pullTo(-100, -175, 0.75).applyPhysics().banish(150).draw()
+	rain.applyPhysics().banish(150).draw()
 
 	game.draw()
 }
