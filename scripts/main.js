@@ -23,7 +23,7 @@ var makeItRain = function(count)
 				  .setStretch(tool.random(50 * l.retina, 100 * l.retina), tool.random(25 * l.retina, 50 * l.retina))
 				  .setFriction(0)
 				  .spin(tool.random(-7, 7))
-				  .pushTowardDegree(tool.random(130, 50), tool.random(10, 15))
+				  .pushTowardDegree(tool.random(130, 50), tool.random(10, 15) * l.retina)
 		rain.add(dollar)
 	}
 }
