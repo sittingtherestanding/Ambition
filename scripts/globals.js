@@ -22,6 +22,11 @@ var game = new Lorina()
 		.makeFullscreen()
 		.appendCanvas()
 
+var speaker = new Speaker()
+	speaker.load('money', 'sounds/money.wav')
+		   .load('press', 'sounds/press.wav')
+		   .load('raise', 'sounds/raise.wav')
+
 // Haaaaaaack
 if (l.retina > 2)
 {

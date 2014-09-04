@@ -393,6 +393,8 @@ var Numpad = function()
 			{
 				canTouch = false
 
+				speaker.play('press')
+
 				if (finger.checkTouched(numberOne))
 				{
 					this.movePressedButton(numberOne)
