@@ -19,6 +19,7 @@
 	<gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" version="1.2.0" /> <!-- Hides the status bar -->
 	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.7.4" /> <!-- Enable local push notifications -->
 	<gap:plugin name="nl.x-services.plugins.insomnia" version="4.0.1" /> <!-- Keep the screen awake but don't forget to actually start it ondeviceready -->
+	<gap:plugin name="org.apache.cordova.media" version="0.2.8" /> <!-- For audio playback -->
 
 	<icon src="icon.png" />
 	<gap:splash src="splash.png" />
