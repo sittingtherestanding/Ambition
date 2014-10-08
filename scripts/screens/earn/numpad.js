@@ -465,7 +465,7 @@ var Numpad = function()
 
 				if (finger.checkTouched(buttonClear))
 				{
-					speaker.play('press')
+					// speaker.play('press')
 					
 					this.movePressedButton(buttonClear)
 
@@ -474,7 +474,7 @@ var Numpad = function()
 
 				if (finger.checkTouched(buttonDelete))
 				{
-					speaker.play('press')
+					// speaker.play('press')
 
 					this.movePressedButton(buttonDelete)
 
@@ -500,7 +500,7 @@ var Numpad = function()
 
 		this.addInput = function(input)
 		{
-			speaker.play('press')
+			// speaker.play('press')
 
 			if (userInput == '?')
 			{

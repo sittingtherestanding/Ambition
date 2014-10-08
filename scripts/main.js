@@ -5,7 +5,7 @@ var rain = new Group() // For dollars which should draw on every screen
 
 var makeItRain = function(count)
 {
-	speaker.play('money')
+	// speaker.play('money')
 
 	var count = Math.round(count)
 
